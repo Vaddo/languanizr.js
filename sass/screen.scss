@@ -1,0 +1,139 @@
+@import "compass/css3";
+@import "normalize";
+
+$pageWidth:700px;
+$primaryColor:#444444;
+$secondaryColor:#2967a4;
+$space:20px;
+
+@mixin pos($top,$right,$bottom,$left){
+    position:absolute;
+    @if($top != ''){top:$top;}
+    @if($right != ''){right:$right;}
+    @if($bottom != ''){bottom:$bottom;}
+    @if($left != ''){left:$left;}
+}
+
+
+
+// ------------------------------------------------------------------- ALL
+*{@include box-sizing(border-box);}
+html, body{height:100%;width:100%;}
+body{
+  color:$primaryColor;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  margin:0px;
+  padding:0px;
+  background-image:url("../img/bg.png");
+}
+hr{
+  border:none;
+  border-bottom:solid 1px lighten($primaryColor, 62%);
+}
+a{
+  color: #2967a4;
+  text-decoration: none;
+}
+ul{list-style:none;}
+h1,h2,h3,h4{
+  margin:0px;
+  text-rendering:optimizelegibility;
+}
+h1{font-size: 60px;}
+h2{font-size: 20px;}
+h3{
+  color:lighten($primaryColor, 30%);
+  font-size: 25px;
+}
+h4{
+  color:lighten($primaryColor, 40%);
+  font-size: 14px;
+  font-style: italic;
+  font-weight:normal;
+}
+nav{@include pos($space,0,'','');}
+
+
+
+// ------------------------------------------------------------------- PAGE
+.right{float:right;}
+.page{
+  max-width:$pageWidth;
+  margin:$space auto 0 auto;
+  padding-left:$space/2;
+  padding-right:$space/2;
+}
+.head{
+  position: relative;
+  margin-bottom:$space;
+}
+.product{
+  position: relative;
+  nav{top:-70px;}
+}
+.someText{
+  margin-top:100px;
+  text-align: center;
+}
+.or{
+  font-size: 26px;
+  margin:0 $space;
+}
+.foot{font-size:12px;}
+
+
+// ------------------------------------------------------------- COMPONENTS
+.buttonBar{
+  margin:$space*2 0 $space*3 0;
+  text-align: center;
+}
+.fatButton{
+  cursor:pointer;
+  color:white;
+  font-size: 20px;
+  display: inline-block;
+  padding:12px 25px;
+  @include transition(all 0.2s linear);
+  @include border-radius(7px);
+}
+$bgcTour:#3072b3;
+.tour{
+  background-color:$bgcTour;
+  border:solid 1px darken($bgcTour, 10%);
+
+  &:hover{
+    $bgcHover: darken($bgcTour, 10%);
+    background-color:$bgcHover;
+    border:solid 1px darken($bgcHover, 10%);
+  }
+}
+$bgcDownload:#5bb75b;
+.download{
+  background-color:$bgcDownload;
+  border:solid 1px darken($bgcDownload, 10%);
+
+  &:hover{
+    $bgcHover: darken($bgcDownload, 10%);
+    background-color:$bgcHover;
+    border:solid 1px darken($bgcHover, 10%);
+  }
+}
+.button{
+  font-size: 14px;
+  padding:5px 10px;
+  margin-left:5px;
+  background-color:lighten($primaryColor, 65%);
+  border:1px solid lighten($primaryColor, 60%);
+  @include border-radius(3px);
+  @include transition(all 0.2s linear);
+
+  &:hover{
+    background-color:lighten($primaryColor, 60%);
+    border:1px solid lighten($primaryColor, 55%);
+  }
+  &.active{
+    color:white;
+    background-color:$secondaryColor;
+    border:1px solid darken($secondaryColor, 10%);
+  }
+}
