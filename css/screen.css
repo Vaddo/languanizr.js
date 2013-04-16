@@ -201,7 +201,7 @@ kbd,
 pre,
 samp {
   font-family: monospace, serif;
-  _font-family: "courier new", monospace;
+  _font-family: 'courier new', monospace;
   font-size: 1em;
 }
 
@@ -336,7 +336,7 @@ form {
  * Define consistent border, margin, and padding.
  */
 fieldset {
-  border: 1px solid silver;
+  border: 1px solid #c0c0c0;
   margin: 0 2px;
   padding: 0.35em 0.625em 0.75em;
 }
@@ -530,7 +530,7 @@ ul {
   list-style: none;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5 {
   margin: 0px;
   text-rendering: optimizelegibility;
 }
@@ -541,6 +541,7 @@ h1 {
 
 h2 {
   font-size: 20px;
+  font-weight: normal;
 }
 
 h3 {
@@ -555,10 +556,20 @@ h4 {
   font-weight: normal;
 }
 
+h5 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
 nav {
   position: absolute;
   top: 20px;
   right: 0;
+}
+
+p {
+  font-size: 14px;
+  margin-top: 0px;
 }
 
 .right {
@@ -592,6 +603,11 @@ nav {
 .or {
   font-size: 26px;
   margin: 0 20px;
+}
+
+.content {
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 .foot {
