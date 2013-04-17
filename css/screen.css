@@ -561,12 +561,6 @@ h5 {
   margin-bottom: 10px;
 }
 
-nav {
-  position: absolute;
-  top: 20px;
-  right: 0;
-}
-
 p {
   font-size: 14px;
   margin-top: 0px;
@@ -581,6 +575,14 @@ p {
   margin: 20px auto 0 auto;
   padding-left: 10px;
   padding-right: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.topNav {
+  position: absolute;
+  top: 20px;
+  right: 0;
 }
 
 .head {
@@ -593,6 +595,12 @@ p {
 }
 .product nav {
   top: -70px;
+}
+
+.nav {
+  position: absolute;
+  top: 100px;
+  right: 10px;
 }
 
 .someText {
@@ -612,6 +620,32 @@ p {
 
 .foot {
   font-size: 12px;
+}
+
+.homeContainer, .editorContainer {
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.homeContainer {
+  position: relative;
+}
+
+.editorContainer {
+  position: absolute;
+  top: 0;
+}
+
+.contentWrapper {
+  position: relative;
+}
+.contentWrapper.home .editorContainer {
+  right: -1000px;
+}
+.contentWrapper.editor .homeContainer {
+  left: -1000px;
 }
 
 .buttonBar {

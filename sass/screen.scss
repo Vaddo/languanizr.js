@@ -58,7 +58,6 @@ h5{
   font-size: 16px;
   margin-bottom:$space/2;
 }
-nav{@include pos($space,0,'','');}
 p{
   font-size: 14px;
   margin-top:0px;
@@ -73,7 +72,10 @@ p{
   margin:$space auto 0 auto;
   padding-left:$space/2;
   padding-right:$space/2;
+  position: relative;
+  overflow: hidden;
 }
+.topNav{@include pos($space,0,'','');}
 .head{
   position: relative;
   margin-bottom:$space;
@@ -82,6 +84,7 @@ p{
   position: relative;
   nav{top:-70px;}
 }
+.nav{@include pos(100px,$space/2,'','');}
 .someText{
   margin-top:100px;
   text-align: center;
@@ -96,6 +99,19 @@ p{
 }
 .foot{font-size:12px;}
 
+.homeContainer, .editorContainer{@include transition(all 0.4s ease-in-out);}
+.homeContainer{position: relative;}
+.editorContainer{@include pos(0,'','','');}
+.contentWrapper{
+  position: relative;
+
+  &.home{
+    .editorContainer{right:-1000px;}
+  }
+  &.editor{
+    .homeContainer{left:-1000px;}
+  }
+}
 
 // ------------------------------------------------------------- COMPONENTS
 .buttonBar{
