@@ -73,7 +73,6 @@ p{
   padding-left:$space/2;
   padding-right:$space/2;
   position: relative;
-  overflow: hidden;
 }
 .topNav{@include pos($space,0,'','');}
 .head{
@@ -101,7 +100,14 @@ p{
 
 .homeContainer, .editorContainer{@include transition(all 0.4s ease-in-out);}
 .homeContainer{position: relative;}
-.editorContainer{@include pos(0,'','','');}
+.editorContainer{
+  width: 100%;
+  @include pos(0,'','','');
+
+  h3{
+    @include pos(-70px,'','','');
+  }
+}
 .contentWrapper{
   position: relative;
 
@@ -166,5 +172,58 @@ $bgcDownload:#5bb75b;
     color:white;
     background-color:$secondaryColor;
     border:1px solid darken($secondaryColor, 10%);
+  }
+}
+
+// ------------------------------------------------------------- LANGUAGE EDITOR
+$primaryColor:#e2e2e2;
+.idCol{
+  width:40px;
+  text-align: center !important;
+  vertical-align: top;
+  font-size: 12px;
+  line-height:20px;
+  color:darken($primaryColor, 20%);
+}
+.languanizrEditor{
+  width:100%;
+
+  td:focus, th:focus{
+    outline:none;
+    border:none;
+    color:lighten(#2967a4, 25%);
+  }
+
+  td{
+    padding:5px;
+    vertical-align: top;
+  }
+
+  .editorHead{
+    th{
+      padding:0 5px 10px 5px;
+      text-align: left;
+    }
+  }
+
+  .editorBody{
+    border:{
+      top:solid 1px $primaryColor;
+      left:solid 1px $primaryColor;
+      right:solid 1px $primaryColor;
+    }
+    font-size: 14px;
+    color:darken($primaryColor, 40%);
+    background-color:white;
+
+    .idCol{border-right:solid 1px $primaryColor;}
+
+    tr{
+      border-bottom:solid 1px lighten($primaryColor,  3%);
+      @include transition(all 0.2s linear);
+
+      &:hover, &.selected{background-color:darken(white, 3%) !important;}
+      &:nth-child(2n){background-color:darken(white, 1%);}
+    }
   }
 }

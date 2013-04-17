@@ -1,4 +1,5 @@
 $(function(){
+  // home, editor navigation
   $("#home, #editor").bind("click", function(){
     var me = $(this);
 
@@ -10,4 +11,7 @@ $(function(){
 
     return false;
   });
+
+  languanizrEditor.init();
+
 });

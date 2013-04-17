@@ -201,7 +201,7 @@ kbd,
 pre,
 samp {
   font-family: monospace, serif;
-  _font-family: 'courier new', monospace;
+  _font-family: "courier new", monospace;
   font-size: 1em;
 }
 
@@ -336,7 +336,7 @@ form {
  * Define consistent border, margin, and padding.
  */
 fieldset {
-  border: 1px solid #c0c0c0;
+  border: 1px solid silver;
   margin: 0 2px;
   padding: 0.35em 0.625em 0.75em;
 }
@@ -576,7 +576,6 @@ p {
   padding-left: 10px;
   padding-right: 10px;
   position: relative;
-  overflow: hidden;
 }
 
 .topNav {
@@ -634,8 +633,13 @@ p {
 }
 
 .editorContainer {
+  width: 100%;
   position: absolute;
   top: 0;
+}
+.editorContainer h3 {
+  position: absolute;
+  top: -70px;
 }
 
 .contentWrapper {
@@ -712,4 +716,54 @@ p {
   color: white;
   background-color: #2967a4;
   border: 1px solid #1f4d7b;
+}
+
+.idCol {
+  width: 40px;
+  text-align: center !important;
+  vertical-align: top;
+  font-size: 12px;
+  line-height: 20px;
+  color: #afafaf;
+}
+
+.languanizrEditor {
+  width: 100%;
+}
+.languanizrEditor td:focus, .languanizrEditor th:focus {
+  outline: none;
+  border: none;
+  color: #71a7dc;
+}
+.languanizrEditor td {
+  padding: 5px;
+  vertical-align: top;
+}
+.languanizrEditor .editorHead th {
+  padding: 0 5px 10px 5px;
+  text-align: left;
+}
+.languanizrEditor .editorBody {
+  border-top: solid 1px #e2e2e2;
+  border-left: solid 1px #e2e2e2;
+  border-right: solid 1px #e2e2e2;
+  font-size: 14px;
+  color: #7c7c7c;
+  background-color: white;
+}
+.languanizrEditor .editorBody .idCol {
+  border-right: solid 1px #e2e2e2;
+}
+.languanizrEditor .editorBody tr {
+  border-bottom: solid 1px #eaeaea;
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+.languanizrEditor .editorBody tr:hover, .languanizrEditor .editorBody tr.selected {
+  background-color: #f7f7f7 !important;
+}
+.languanizrEditor .editorBody tr:nth-child(2n) {
+  background-color: #fcfcfc;
 }
