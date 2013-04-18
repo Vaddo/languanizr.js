@@ -25,7 +25,6 @@ var languanizrEditor = {
   _bindDocumentEvents: function(){
     $(document).on("keydown", function(e){
       var keyCode = e.keyCode;
-      console.log(keyCode)
       if(e.ctrlKey){ // control + ...
         if(keyCode == 80){
           languanizrEditor._createColumn();
@@ -50,8 +49,9 @@ var languanizrEditor = {
             languanizrEditor._createRow();
           }
         }else if(keyCode == 13){ // enter - add row
+          var col = languanizrEditor._getColIndex(me);
           languanizrEditor._createRow();
-          languanizrEditor._focusLastRow(1);
+          languanizrEditor._focusLastRow(col);
           return false;
 
         }else if((keyCode == 46) && !e.ctrlKey){ // del - remove current row
