@@ -48,12 +48,10 @@ var languanizrEditor = {
           if(me.parent().is(":last-child") && me.is(":last-child")){
             languanizrEditor._createRow();
           }
-        }else if(keyCode == 13){ // enter - add row
+        }else if((keyCode == 13) && !e.ctrlKey){ // enter - jump to next cell in same column
           var col = languanizrEditor._getColIndex(me);
-          languanizrEditor._createRow();
-          languanizrEditor._focusLastRow(col);
+          languanizrEditor._focusNextRow(me, col);
           return false;
-
         }else if((keyCode == 46) && !e.ctrlKey){ // del - remove current row
           var rowCount = languanizrEditor._body.find("tr").length;
 
@@ -88,8 +86,12 @@ var languanizrEditor = {
               $(".col" + col).off("focusin, focusout, keydown").remove();
             }
             return false;
+          }else if(keyCode == 13){ // enter - add row at the bottom
+            var col = languanizrEditor._getColIndex(me);
+            languanizrEditor._createRow();
+            languanizrEditor._focusLastRow(col);
+            return false;
           }
-
         }else if(keyCode == 37){ // left arrow
           var col  = languanizrEditor._getColIndex(me);
           var prev = parseInt(col) - 1;
