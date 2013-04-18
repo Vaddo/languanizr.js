@@ -201,7 +201,7 @@ kbd,
 pre,
 samp {
   font-family: monospace, serif;
-  _font-family: "courier new", monospace;
+  _font-family: 'courier new', monospace;
   font-size: 1em;
 }
 
@@ -336,7 +336,7 @@ form {
  * Define consistent border, margin, and padding.
  */
 fieldset {
-  border: 1px solid silver;
+  border: 1px solid #c0c0c0;
   margin: 0 2px;
   padding: 0.35em 0.625em 0.75em;
 }
@@ -718,6 +718,11 @@ p {
   border: 1px solid #1f4d7b;
 }
 
+.languanizrEditorPlaceholder {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+}
+
 .idCol {
   width: 40px;
   text-align: center !important;
@@ -743,10 +748,12 @@ p {
   padding: 0 5px 10px 5px;
   text-align: left;
 }
+.languanizrEditor .dataCol {
+  border-right: solid 1px #e2e2e2 !important;
+}
 .languanizrEditor .editorBody {
   border-top: solid 1px #e2e2e2;
   border-left: solid 1px #e2e2e2;
-  border-right: solid 1px #e2e2e2;
   font-size: 14px;
   color: #7c7c7c;
   background-color: white;

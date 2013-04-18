@@ -177,6 +177,7 @@ $bgcDownload:#5bb75b;
 
 // ------------------------------------------------------------- LANGUAGE EDITOR
 $primaryColor:#e2e2e2;
+.languanizrEditorPlaceholder{@include opacity(0);}
 .idCol{
   width:40px;
   text-align: center !important;
@@ -205,12 +206,12 @@ $primaryColor:#e2e2e2;
       text-align: left;
     }
   }
+  .dataCol{border-right:solid 1px $primaryColor !important;}
 
   .editorBody{
     border:{
       top:solid 1px $primaryColor;
       left:solid 1px $primaryColor;
-      right:solid 1px $primaryColor;
     }
     font-size: 14px;
     color:darken($primaryColor, 40%);
