@@ -2,6 +2,7 @@ var languanizrEditor = {
   // -------------------------------------------------------------------------------
   // properties --------------------------------------------------------------------
   // -------------------------------------------------------------------------------
+  _version: 1,
   _editor: $("#languanizrEditor"),
   _body: $("#editorBody"),
   _head: $("#editorHead"),
@@ -12,9 +13,11 @@ var languanizrEditor = {
   // public functions --------------------------------------------------------------
   // -------------------------------------------------------------------------------
   init: function(){
-    var cols = this._body.find(".dataCol");
     this._bindDocumentEvents();
-    this._bindBodyCellEvents(cols);
+    var cells = this._body.find(".dataCol");
+    this._bindBodyCellEvents(cells);
+    var cells = this._head.find(".langCol");
+    this._bindHeadCellEvents(cells);
   },
 
 
@@ -27,20 +30,21 @@ var languanizrEditor = {
       var keyCode = e.keyCode;
       if(e.ctrlKey){
         if(languanizrEditor._controlPBehavior(keyCode)){return false;} // new language package
+        if(languanizrEditor._controlEBehavior(keyCode)){return false;} // new language package
       }
     });
   },
-  _bindBodyCellEvents: function(cols){
+  _bindBodyCellEvents: function(cells){
     // cell events
-    cols.on("focusin", function(){
+    cells.on("focusin", function(){
       var me = $(this);
       me.parent().addClass("selected");
       me.one("focusout", function(){
-        $(this).off("keydown").parent().removeClass();
+        $("#lastFocused").attr("id", "");
+        $(this).off("keydown").attr("id", "lastFocused").parent().removeClass("selected");
       }).on("keydown", function(e){
         var keyCode = e.keyCode;
         var me      = $(this);
-
         if(!e.shiftKey){
           languanizrEditor._tabBehavior(me, keyCode); // next cell, last cell create new row
         }
@@ -64,7 +68,32 @@ var languanizrEditor = {
       });
     });
   },
+  _bindHeadCellEvents: function(cells){
+    // cell events
+    cells.on("focusin", function(){
+      var me = $(this);
+      me.one("focusout", function(){
+        $(this).off("keydown");
+      }).on("keydown", function(e){
+        var keyCode = e.keyCode;
+        var me      = $(this);
 
+        if(!e.ctrlKey){
+          if(languanizrEditor._enterBehavior(me, keyCode)){return false;} // first row
+        }
+
+        if(e.ctrlKey){ // control
+          languanizrEditor._controlPosBehavior(keyCode); // first cell
+          languanizrEditor._controlEndBehavior(keyCode); // last cell
+          if(languanizrEditor._controlBackspaceBehavior(me, keyCode)){return false;} // delete language package
+        } 
+
+        languanizrEditor._arrowRightBehaviour(me, keyCode); // right cell
+        languanizrEditor._arrowBottomBehaviour(me, keyCode); // bottom cell
+        languanizrEditor._arrowLeftBehaviour(me, keyCode); // left cell
+      });
+    });
+  },
 
 
 
@@ -82,11 +111,16 @@ var languanizrEditor = {
     if(keyCode == 13){
       var col = languanizrEditor._getColIndex(cell);
 
-      if(languanizrEditor._isLastCell(cell)){
-        languanizrEditor._createRow();
-      }
+      if(cell.context.tagName.toLowerCase() == "th"){
+        languanizrEditor._focusFirstRow(col);
+      }else{
 
-      languanizrEditor._focusNextRow(cell, col);
+        if(languanizrEditor._isLastRow(cell)){
+          languanizrEditor._createRow();
+        }
+
+        languanizrEditor._focusNextRow(cell, col);
+      }
       return true;
     }
     return false;
@@ -100,9 +134,40 @@ var languanizrEditor = {
     }
     return false;
   },
+  _controlEBehavior: function(keyCode){
+    if(keyCode == 69){
+      var ids = languanizrEditor._body.find(".idCol");
+      var colCount = languanizrEditor._getColCount();
+      var rowCount = languanizrEditor._getRowCount();
+      var i, transI, json, col, me;
+
+      for(i = 0; i < colCount; ++i){
+        colSelector = ".col" + (i + 1);
+
+        json = '{"title": "languanizr.js language package", ' + 
+                '"description": "languanizr.js is a small client side translation script. This language package was created by the languanizr package editor."' +
+                '"url": "http://www.languanizr.com"' +
+                '"editor_version": ' + languanizrEditor._version + ', ' +
+                '"package_version": ' + $("#packageVersion").text() + ', ' + 
+                '"language": "' + languanizrEditor._head.find(colSelector).text() + '", ' +
+                '"translations": {';
+
+        for(transI = 1; transI <= rowCount; ++transI){
+          me   = $(ids[(transI - 1)]);
+          json += ('"' + me.text() + '": "' + me.siblings(colSelector).text() + '"');
+          json += (transI != rowCount) ? ", " : "";
+        }
+
+        json += '}}';
+      }
+
+      return true;
+    }
+    return false;
+  },
   _controlDelBehavior: function(cell, keyCode){
     if(keyCode == 46){
-      var rowCount = languanizrEditor._body.find("tr").length;
+      var rowCount = languanizrEditor._getRowCount();
 
       if(rowCount > 1){
         var col = languanizrEditor._getColIndex(cell);
@@ -121,6 +186,9 @@ var languanizrEditor = {
     if(keyCode == 67){
       var value = "{$#" + cell.siblings(".idCol").text() + "#" + cell.text() + "$}"
       $("#languanizrEditorPlaceholder").val(value).select();
+      setTimeout(function(){
+        $("#lastFocused").focus();
+      }, 100);
     }
   },
   _controlPosBehavior: function(keyCode){
@@ -143,19 +211,25 @@ var languanizrEditor = {
   // -------------------------------------------------------------------- arrow keys
   _arrowTopBehaviour: function(cell, keyCode){
     if(keyCode == 38){
-      languanizrEditor._focusPrevRow(cell, languanizrEditor._getColIndex(cell));
+      var col = languanizrEditor._getColIndex(cell);
+
+      (languanizrEditor._isFirstRow(cell)) ? languanizrEditor._focusHeadRow(col) : languanizrEditor._focusPrevRow(cell, col);
     }
   },
   _arrowRightBehaviour: function(cell, keyCode){
     if(keyCode == 39){
       var col  = parseInt(languanizrEditor._getColIndex(cell));
-      console.log(col + 1)
       cell.siblings(".col" + (col + 1)).focus();
     }
   },
   _arrowBottomBehaviour: function(cell, keyCode){
     if(keyCode == 40){
-      languanizrEditor._focusNextRow(cell, languanizrEditor._getColIndex(cell));
+      var col = languanizrEditor._getColIndex(cell);
+      if(cell.context.tagName.toLowerCase() == "th"){
+        languanizrEditor._focusFirstRow(col);
+      }else{
+        languanizrEditor._focusNextRow(cell, col);
+      }
     }
   },
   _arrowLeftBehaviour: function(cell, keyCode){
@@ -188,20 +262,21 @@ var languanizrEditor = {
     languanizrEditor._body.append(newElement);
   },
   _createColumn: function(){
-    var editor = languanizrEditor._editor;
-    var head   = languanizrEditor._head;
-    var body   = languanizrEditor._body;
-    var count  = languanizrEditor._getColCount();
+    var editor   = languanizrEditor._editor;
+    var head     = languanizrEditor._head;
+    var body     = languanizrEditor._body;
+    var count    = languanizrEditor._getColCount();
+    var rowCount = languanizrEditor._getRowCount();
+    var curRow, rowIndex, element, headElement;
 
     if(count == 0){
       head.append('<th id="idCol"></th>');
     }
     ++count;
-    head.append('<th class="col' + count + '" contenteditable="true">' + "super cool language" + '</th>');
+    headElement = $('<th class="col' + count + ' langCol" contenteditable="true">' + "super cool language" + '</th>');
+    languanizrEditor._bindHeadCellEvents(headElement);
+    head.append(headElement);
 
-    var curRow, rowIndex, element;
-    var rows     = body.find("tr");
-    var rowCount = rows.length;
 
     for(rowIndex = 0; rowIndex < rowCount; ++rowIndex){
 
@@ -224,11 +299,20 @@ var languanizrEditor = {
   // -------------------------------------------------------------------------------
   // private cell helper functions -------------------------------------------------
   // -------------------------------------------------------------------------------
-  _isLastCell: function(element){
-    return ((element.parent().is(":last-child")) && element.is(":last-child"));
+  _isLastCell: function(cell){
+    return ((cell.parent().is(":last-child")) && cell.is(":last-child"));
   },
-  _getColIndex: function(element){
-    return element.attr("class").replace("dataCol", "").replace("col", "");
+  _isFirstRow: function(cell){
+    return (cell.parent().is(":first-child"));
+  },
+  _isLastRow: function(cell){
+    return (cell.parent().is(":last-child"));
+  },
+  _getColIndex: function(cell){
+    return cell.attr("class")
+                  .replace("dataCol", "")
+                  .replace("langCol", "")
+                  .replace("col", "");
   },
   _focusPrevRow: function(curCell, col){
     var prev = curCell.parent().prev("tr");
@@ -260,5 +344,11 @@ var languanizrEditor = {
   },
   _getColCount: function(){
     return languanizrEditor._head.find("th").length - 1;
+  },
+  _getRowCount: function(){
+    return languanizrEditor._body.find("tr").length;
+  },
+  _focusHeadRow: function(col){
+    languanizrEditor._head.find(".col" + col).focus();
   }
 }

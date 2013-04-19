@@ -178,6 +178,11 @@ $bgcDownload:#5bb75b;
 // ------------------------------------------------------------- LANGUAGE EDITOR
 $primaryColor:#e2e2e2;
 .languanizrEditorPlaceholder{@include opacity(0);}
+.packageVersion{
+  font-size:12px;
+  float:right;
+  margin-bottom:20px;
+}
 .idCol{
   width:40px;
   text-align: center !important;
