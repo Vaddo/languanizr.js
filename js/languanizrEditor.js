@@ -14,7 +14,7 @@ var languanizrEditor = {
   init: function(){
     var cols = this._body.find(".dataCol");
     this._bindDocumentEvents();
-    this._bindCellEvents(cols);
+    this._bindBodyCellEvents(cols);
   },
 
 
@@ -25,15 +25,12 @@ var languanizrEditor = {
   _bindDocumentEvents: function(){
     $(document).on("keydown", function(e){
       var keyCode = e.keyCode;
-      if(e.ctrlKey){ // control + ...
-        if(keyCode == 80){
-          languanizrEditor._createColumn();
-          return false;
-        }
+      if(e.ctrlKey){
+        if(languanizrEditor._controlPBehavior(keyCode)){return false;} // new language package
       }
     });
   },
-  _bindCellEvents: function(cols){
+  _bindBodyCellEvents: function(cols){
     // cell events
     cols.on("focusin", function(){
       var me = $(this);
@@ -44,88 +41,140 @@ var languanizrEditor = {
         var keyCode = e.keyCode;
         var me      = $(this);
 
-        if(keyCode == 9 && !e.shiftKey){ // tab - add row
-          if(me.parent().is(":last-child") && me.is(":last-child")){
-            languanizrEditor._createRow();
-          }
-        }else if((keyCode == 13) && !e.ctrlKey){ // enter - jump to next cell in same column
-          var col = languanizrEditor._getColIndex(me);
-          languanizrEditor._focusNextRow(me, col);
-          return false;
-        }else if((keyCode == 46) && !e.ctrlKey){ // del - remove current row
-          var rowCount = languanizrEditor._body.find("tr").length;
-
-          if(rowCount > 1){
-            var col = languanizrEditor._getColIndex(me);
-
-            // prev element exists?
-            if(!languanizrEditor._focusNextRow(me, col)){
-              languanizrEditor._focusPrevRow(me, col);
-            }
-            me.off("keydown").parent().remove();
-          }
-          return false;
-
-        }else if(e.ctrlKey){ // control + ...
-          if(keyCode == 67){ // ... c
-            var value = "{$#" + me.siblings(".idCol").text() + "#" + me.text() + "$}"
-            $("#languanizrEditorPlaceholder").val(value).select();
-            
-          }else if(keyCode == 36){ // ... pos - first cell
-            languanizrEditor._focusFirstRow(1);
-          }else if(keyCode == 35){ // ... end - last cell
-            languanizrEditor._focusLastRow(2);
-          }else if(keyCode == 46){ // ... del - delete language package
-            var col = languanizrEditor._getColIndex(me);
-            var colCount = languanizrEditor._head.find("th").length - 1;
-
-            if(col != 1){
-              languanizrEditor._focusFirstRow(col-1);
-            }
-            if(colCount > 1){
-              $(".col" + col).off("focusin, focusout, keydown").remove();
-            }
-            return false;
-          }else if(keyCode == 13){ // enter - add row at the bottom
-            var col = languanizrEditor._getColIndex(me);
-            languanizrEditor._createRow();
-            languanizrEditor._focusLastRow(col);
-            return false;
-          }
-        }else if(keyCode == 37){ // left arrow
-          var col  = languanizrEditor._getColIndex(me);
-          var prev = parseInt(col) - 1;
-
-          me.siblings(".col" + prev).focus();
-
-        }else if(keyCode == 39){ // right arrow
-          var col  = languanizrEditor._getColIndex(me);
-          var next = parseInt(col) + 1;
-
-          me.siblings(".col" + next).focus();
-
-        }else if(keyCode == 38){ // top arrow
-          var col = languanizrEditor._getColIndex(me);
-          languanizrEditor._focusPrevRow(me, col);
-
+        if(!e.shiftKey){
+          languanizrEditor._tabBehavior(me, keyCode); // next cell, last cell create new row
         }
-        else if(keyCode == 40){ // bottom arrow
-          var col = languanizrEditor._getColIndex(me);
-          languanizrEditor._focusNextRow(me, col);
+
+        if(!e.ctrlKey){
+          if(languanizrEditor._enterBehavior(me, keyCode)){return false;} // new row
         }
+
+        if(e.ctrlKey){ // control
+          languanizrEditor._controlCBehavior(me, keyCode); // copy placeholder to clipboard
+          languanizrEditor._controlPosBehavior(keyCode); // first cell
+          languanizrEditor._controlEndBehavior(keyCode); // last cell
+          if(languanizrEditor._controlBackspaceBehavior(me, keyCode)){return false;} // delete language package
+          if(languanizrEditor._controlDelBehavior(me, keyCode)){return false;} // delete row
+        } 
+
+        languanizrEditor._arrowTopBehaviour(me, keyCode); // top cell
+        languanizrEditor._arrowRightBehaviour(me, keyCode); // right cell
+        languanizrEditor._arrowBottomBehaviour(me, keyCode); // bottom cell
+        languanizrEditor._arrowLeftBehaviour(me, keyCode); // left cell
       });
     });
   },
-  _getColIndex: function(element){
-    return element.attr("class").replace("dataCol", "").replace("col", "");
+
+
+
+
+  // -------------------------------------------------------------------------------
+  // private keycode functions -----------------------------------------------------
+  // -------------------------------------------------------------------------------
+  _tabBehavior: function(cell, keyCode){
+    if(keyCode == 9){
+      if(languanizrEditor._isLastCell(cell)){
+        languanizrEditor._createRow();
+      }
+    }
   },
+  _enterBehavior: function(cell, keyCode){
+    if(keyCode == 13){
+      var col = languanizrEditor._getColIndex(cell);
+
+      if(languanizrEditor._isLastCell(cell)){
+        languanizrEditor._createRow();
+      }
+
+      languanizrEditor._focusNextRow(cell, col);
+      return true;
+    }
+    return false;
+  },
+  
+  // --------------------------------------------------------------- ctrl combo keys
+  _controlPBehavior: function(keyCode){
+    if(keyCode == 80){
+      languanizrEditor._createColumn();
+      return true;
+    }
+    return false;
+  },
+  _controlDelBehavior: function(cell, keyCode){
+    if(keyCode == 46){
+      var rowCount = languanizrEditor._body.find("tr").length;
+
+      if(rowCount > 1){
+        var col = languanizrEditor._getColIndex(cell);
+
+        // prev element exists?
+        if(!languanizrEditor._focusNextRow(cell, col)){
+          languanizrEditor._focusPrevRow(cell, col);
+        }
+        cell.off("keydown").parent().remove();
+      }
+      return true;
+    }
+    return false;
+  },
+  _controlCBehavior: function(cell, keyCode){
+    if(keyCode == 67){
+      var value = "{$#" + cell.siblings(".idCol").text() + "#" + cell.text() + "$}"
+      $("#languanizrEditorPlaceholder").val(value).select();
+    }
+  },
+  _controlPosBehavior: function(keyCode){
+    if(keyCode == 36){languanizrEditor._focusFirstRow(1);}},
+  _controlEndBehavior: function(keyCode){
+    if(keyCode == 35){languanizrEditor._focusLastRow(languanizrEditor._getColCount()); }
+  },
+  _controlBackspaceBehavior: function(cell, keyCode){
+    if(keyCode == 8){
+      var col = languanizrEditor._getColIndex(cell);
+
+      if(col != 1){
+        languanizrEditor._focusFirstRow(col-1);
+      }
+      if(languanizrEditor._getColCount() > 1){
+        $(".col" + col).off("focusin, focusout, keydown").remove();
+      }
+    }
+  },
+  // -------------------------------------------------------------------- arrow keys
+  _arrowTopBehaviour: function(cell, keyCode){
+    if(keyCode == 38){
+      languanizrEditor._focusPrevRow(cell, languanizrEditor._getColIndex(cell));
+    }
+  },
+  _arrowRightBehaviour: function(cell, keyCode){
+    if(keyCode == 39){
+      var col  = parseInt(languanizrEditor._getColIndex(cell));
+      console.log(col + 1)
+      cell.siblings(".col" + (col + 1)).focus();
+    }
+  },
+  _arrowBottomBehaviour: function(cell, keyCode){
+    if(keyCode == 40){
+      languanizrEditor._focusNextRow(cell, languanizrEditor._getColIndex(cell));
+    }
+  },
+  _arrowLeftBehaviour: function(cell, keyCode){
+    if(keyCode == 37){
+      var col  = parseInt(languanizrEditor._getColIndex(cell));
+      cell.siblings(".col" + (col - 1)).focus();
+    }
+  },
+
+
+
+
+  // -------------------------------------------------------------------------------
+  // private row, col helper functions ---------------------------------------------
+  // -------------------------------------------------------------------------------
   _createRow: function(){
     var editor   = languanizrEditor._editor;
-    var head     = languanizrEditor._head;
-    var body     = languanizrEditor._body;
-
     var nextId   = parseInt(editor.attr("data-latest-id")) + 1;
-    var colCount = head.find("th").length;
+    var colCount = languanizrEditor._getColCount() + 1; // include the idCol
     var markup   = '<tr><td class="idCol">' + nextId + '</td>';
 
     for(i = 1; i < colCount; ++i){markup += '<td class="col' + i + ' dataCol" contenteditable="true"></td>';}
@@ -135,19 +184,19 @@ var languanizrEditor = {
     var cols = newElement.find(".dataCol");
 
     editor.attr("data-latest-id", nextId);
-    languanizrEditor._bindCellEvents(cols);
-    body.append(newElement);
+    languanizrEditor._bindBodyCellEvents(cols);
+    languanizrEditor._body.append(newElement);
   },
   _createColumn: function(){
     var editor = languanizrEditor._editor;
     var head   = languanizrEditor._head;
     var body   = languanizrEditor._body;
-    var count  = head.find("th").length;
+    var count  = languanizrEditor._getColCount();
 
     if(count == 0){
       head.append('<th id="idCol"></th>');
-      ++count;
     }
+    ++count;
     head.append('<th class="col' + count + '" contenteditable="true">' + "super cool language" + '</th>');
 
     var curRow, rowIndex, element;
@@ -163,39 +212,53 @@ var languanizrEditor = {
       }
 
       element = $('<td class="col' + count + ' dataCol" contenteditable="true"></td>');
-      languanizrEditor._bindCellEvents(element);
+      languanizrEditor._bindBodyCellEvents(element);
       curRow.append(element);
     }
     head.find("th:last").focus();
   },
+
+
+
+
+  // -------------------------------------------------------------------------------
+  // private cell helper functions -------------------------------------------------
+  // -------------------------------------------------------------------------------
+  _isLastCell: function(element){
+    return ((element.parent().is(":last-child")) && element.is(":last-child"));
+  },
+  _getColIndex: function(element){
+    return element.attr("class").replace("dataCol", "").replace("col", "");
+  },
   _focusPrevRow: function(curCell, col){
-    var focused = false;
-    var prev    = curCell.parent().prev("tr");
+    var prev = curCell.parent().prev("tr");
 
     // prev element exists?
     if(prev.length != 0){
       prev.find(".col" + col).focus();
-      focused = true;
+      return true;
     }
 
-    return focused;
+    return false;
   },
   _focusNextRow: function(curCell, col){
-    var focused = false;
-    var next    = curCell.parent().next("tr");
+    var next = curCell.parent().next("tr");
 
     // next element exists?
     if(next.length != 0){
       next.find(".col" + col).focus();
-      focused = true;
+      return true;
     }
 
-    return focused;
+    return false;
   },
   _focusFirstRow: function(col){
     languanizrEditor._body.find("tr:first").find(".col" + col).focus();
   },
   _focusLastRow: function(col){
     languanizrEditor._body.find("tr:last").find(".col" + col).focus();
+  },
+  _getColCount: function(){
+    return languanizrEditor._head.find("th").length - 1;
   }
 }
