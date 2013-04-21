@@ -514,6 +514,7 @@ body {
   margin: 0px;
   padding: 0px;
   background-image: url("../img/bg.png");
+  overflow-x: hidden;
 }
 
 hr {
@@ -599,6 +600,12 @@ p {
 .nav {
   position: absolute;
   top: 100px;
+  left: 10px;
+}
+
+.nav2 {
+  position: absolute;
+  top: 100px;
   right: 10px;
 }
 
@@ -609,7 +616,7 @@ p {
 
 .or {
   font-size: 26px;
-  margin: 0 20px;
+  margin: 0 10px;
 }
 
 .content {
@@ -621,7 +628,7 @@ p {
   font-size: 12px;
 }
 
-.homeContainer, .editorContainer {
+.homeContainer, .editorContainer, .jsonContainer {
   -webkit-transition: all 0.4s ease-in-out;
   -moz-transition: all 0.4s ease-in-out;
   -o-transition: all 0.4s ease-in-out;
@@ -632,14 +639,15 @@ p {
   position: relative;
 }
 
-.editorContainer {
+.editorContainer, .jsonContainer {
   width: 100%;
   position: absolute;
   top: 0;
 }
-.editorContainer h3 {
+.editorContainer h4, .jsonContainer h4 {
   position: absolute;
   top: -70px;
+  right: 0;
 }
 
 .contentWrapper {
@@ -648,7 +656,19 @@ p {
 .contentWrapper.home .editorContainer {
   right: -1000px;
 }
+.contentWrapper.home .jsonContainer {
+  right: -1000px;
+}
 .contentWrapper.editor .homeContainer {
+  left: -1000px;
+}
+.contentWrapper.editor .jsonContainer {
+  right: -1000px;
+}
+.contentWrapper.json .editorContainer {
+  left: -1000px;
+}
+.contentWrapper.json .homeContainer {
   left: -1000px;
 }
 
@@ -658,11 +678,14 @@ p {
 }
 
 .fatButton {
+  width: 150px;
+  display: block;
+  line-height: 16px;
   cursor: pointer;
   color: white;
   font-size: 20px;
   display: inline-block;
-  padding: 12px 25px;
+  padding: 12px 15px;
   -webkit-transition: all 0.2s linear;
   -moz-transition: all 0.2s linear;
   -o-transition: all 0.2s linear;
@@ -672,6 +695,9 @@ p {
   -ms-border-radius: 7px;
   -o-border-radius: 7px;
   border-radius: 7px;
+}
+.fatButton .descr {
+  font-size: 12px;
 }
 
 .tour {
@@ -718,15 +744,22 @@ p {
   border: 1px solid #1f4d7b;
 }
 
+.back {
+  position: absolute;
+  top: -70px;
+  right: 0;
+}
+
 .languanizrEditorPlaceholder {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
 }
 
-.packageVersion {
+.nextPackageVersion, .prevPackageVersion {
   font-size: 12px;
-  float: right;
   margin-bottom: 20px;
+  position: absolute;
+  right: 0;
 }
 
 .idCol {
@@ -740,6 +773,8 @@ p {
 
 .languanizrEditor {
   width: 100%;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 .languanizrEditor td:focus, .languanizrEditor th:focus {
   outline: none;
@@ -779,4 +814,16 @@ p {
 }
 .languanizrEditor .editorBody tr:nth-child(2n) {
   background-color: #fcfcfc;
+}
+
+.jsonContainer textarea {
+  padding: 10px;
+  font-size: 14px;
+  color: #969696;
+  height: 500px;
+  border: solid 1px #e2e2e2;
+  position: absolute;
+  top: 0px;
+  right: 0;
+  left: 0;
 }

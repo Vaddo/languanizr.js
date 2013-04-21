@@ -11,9 +11,12 @@
   <body>
     <div class="page" id="page">
       <div class="head">
-        <h3>languanizr.js</h3>
-        <h4>A client side translation script</h4>
+        <h3>Languanizr</h3>
+        <h4>A smart multilanguage toolkit for websites</h4>
         <nav class="topNav">
+          <a id="german" class="button" href="#">German</a>
+          <a id="english" class="button active" href="#">English</a>
+          <span>-</span>
           <a class="button" href="#">Github</a>
         </nav>
       </div>
@@ -22,18 +25,18 @@
         <a id="home" class="button active" href="#">Home</a>
         <a id="editor" class="button" href="#">Editor</a>
       </nav>
-      <div id="contentWrapper" class="contentWrapper editor">
+      <div id="contentWrapper" class="contentWrapper home">
         <div class="homeContainer">
           <div class="product">
             <div class="someText">
-              <h1>languanizr.js</h1>
-              <h2>Create very simple and super fast multi language pages.<br>
-                Languanizr is a small client side translation script.<br>Try it...</h2>
+              <h1>Languanizr</h1>
+              <h2>Create multilanguage sites simple and fast with languanizr.js,<br> a client side translation script and the online language editor!<br>
+                Try it ...</h2>
             </div>
             <div class="buttonBar">
-              <div class="fatButton tour">Take a tour</div>
+              <a href="#" class="fatButton tour">Take a tour <span class="descr">Do it!</span></a>
               <span class="or">or</span>
-              <div class="fatButton download">Download</div>
+              <a href="#" class="fatButton download">Download <span class="descr">languanizr.js v.0.1</span></a>
             </div>
           </div>
           <hr>
@@ -51,36 +54,42 @@
             <h5>Free & Open-Source</h5>
             <h5>Crossbrowsers</h5>
             <h5>Super cool language editor</h5>
+            -- fast navigation
+            -- userfriendly package creation
           </div>
           <hr>
           <div class="foot">
-            <span>&copy; 2013 -A project by <a href="http://www.vadim-hermann.com" target="_blank">Vadim Hermann</a></span>
+            <span>&copy; 2013 - A project by <a href="http://www.vadim-hermann.com" target="_blank">Vadim Hermann</a></span>
             <span class="right">Background by <a href="http://www.patternwall.net" target="_blank">Patternwall.net</a></span>
           </div>
         </div>
         <div class="editorContainer">
-          <h3>Language Editor</h3>
-          <span class="packageVersion">Package version: <span id="packageVersion">1</span></span>
+          <h4>online editor - v. <span id="version"></span></h4>
+          <span class="nextPackageVersion">Package version: <span id="nextPackageVersion">1</span></span>
           <table id="languanizrEditor" data-latest-id="1" class="languanizrEditor" cellspacing="0" cellpadding="0" border="0">
             <thead>
               <tr id="editorHead" class="editorHead">
                 <th id="idCol" class="idCol">#</th>
-                <th class="col1 langCol" contenteditable="true">first language</th>
+                <th class="col1 langCol" contenteditable="true">type in here your language ...</th>
               </tr>
             </thead>
             <tbody id="editorBody" class="editorBody">
               <tr>
                 <td class="idCol">1</td>
-                <td class="col1 dataCol" contenteditable="true">Hello World!</td>
+                <td class="col1 dataCol" contenteditable="true">... following by words</td>
               </td>
             </tbody>
           </table>
           <input id="languanizrEditorPlaceholder" class="languanizrEditorPlaceholder" type="text"/>
         </div>
+        <div class="jsonContainer">
+          <a id="editor" class="button back" href="#">Back</a>
+          <textarea id="field" cols="30" rows="10" class="field"></textarea>
+        </div>
       </div>
     </div>
+
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
     <script src="js/languanizrEditor.js"></script>
     <script src="js/main.js"></script>
   </body>

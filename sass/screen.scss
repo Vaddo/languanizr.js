@@ -25,6 +25,7 @@ body{
   margin:0px;
   padding:0px;
   background-image:url("../img/bg.png");
+  overflow-x:hidden;
 }
 hr{
   border:none;
@@ -83,14 +84,15 @@ p{
   position: relative;
   nav{top:-70px;}
 }
-.nav{@include pos(100px,$space/2,'','');}
+.nav{@include pos(100px,'','',$space/2);}
+.nav2{@include pos(100px,$space/2,'','');}
 .someText{
   margin-top:100px;
   text-align: center;
 }
 .or{
   font-size: 26px;
-  margin:0 $space;
+  margin:0 $space/2;
 }
 .content{
   padding-top:$space*2;
@@ -98,14 +100,14 @@ p{
 }
 .foot{font-size:12px;}
 
-.homeContainer, .editorContainer{@include transition(all 0.4s ease-in-out);}
+.homeContainer, .editorContainer, .jsonContainer{@include transition(all 0.4s ease-in-out);}
 .homeContainer{position: relative;}
-.editorContainer{
+.editorContainer, .jsonContainer{
   width: 100%;
   @include pos(0,'','','');
 
-  h3{
-    @include pos(-70px,'','','');
+  h4{
+    @include pos(-70px,0,'','');
   }
 }
 .contentWrapper{
@@ -113,8 +115,14 @@ p{
 
   &.home{
     .editorContainer{right:-1000px;}
+    .jsonContainer{right:-1000px;}
   }
   &.editor{
+    .homeContainer{left:-1000px;}
+    .jsonContainer{right:-1000px;}
+  }
+  &.json{
+    .editorContainer{left:-1000px;}
     .homeContainer{left:-1000px;}
   }
 }
@@ -125,13 +133,17 @@ p{
   text-align: center;
 }
 .fatButton{
+  width:150px;
+  display: block;
+  line-height:16px;
   cursor:pointer;
   color:white;
   font-size: 20px;
   display: inline-block;
-  padding:12px 25px;
+  padding:12px 15px;
   @include transition(all 0.2s linear);
   @include border-radius(7px);
+  .descr{font-size:12px;}
 }
 $bgcTour:#3072b3;
 .tour{
@@ -148,6 +160,7 @@ $bgcDownload:#5bb75b;
 .download{
   background-color:$bgcDownload;
   border:solid 1px darken($bgcDownload, 10%);
+
 
   &:hover{
     $bgcHover: darken($bgcDownload, 10%);
@@ -177,11 +190,14 @@ $bgcDownload:#5bb75b;
 
 // ------------------------------------------------------------- LANGUAGE EDITOR
 $primaryColor:#e2e2e2;
+.back{
+  @include pos(-70px,0,'','');
+}
 .languanizrEditorPlaceholder{@include opacity(0);}
-.packageVersion{
+.nextPackageVersion, .prevPackageVersion{
   font-size:12px;
-  float:right;
   margin-bottom:20px;
+  @include pos('',0,'','');
 }
 .idCol{
   width:40px;
@@ -193,6 +209,8 @@ $primaryColor:#e2e2e2;
 }
 .languanizrEditor{
   width:100%;
+  margin-top:40px;
+  margin-bottom:40px;
 
   td:focus, th:focus{
     outline:none;
@@ -231,5 +249,15 @@ $primaryColor:#e2e2e2;
       &:hover, &.selected{background-color:darken(white, 3%) !important;}
       &:nth-child(2n){background-color:darken(white, 1%);}
     }
+  }
+}
+.jsonContainer{
+  textarea{
+    padding:10px;
+    font-size: 14px;
+    color:darken($primaryColor, 30%);
+    height:500px;
+    border:solid 1px $primaryColor;
+    @include pos(0px, 0, '', 0);
   }
 }

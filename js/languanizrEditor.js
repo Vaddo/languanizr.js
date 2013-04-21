@@ -1,8 +1,19 @@
+/**
+ * Languanizr.js is a smart multilanguage toolkit for websites.
+ * Create language packages simple and fast with the online language editor.
+ * Online editor version 0.1
+ * Http://www.languanizr.com
+ * https://github.com/Vaddo/languanizr.js
+ *
+ * MIT licensed
+ *
+ * Copyright (C) 2013 - A project by Vadim Hermann - http://www.vadim-hermann.com
+ */
 var languanizrEditor = {
   // -------------------------------------------------------------------------------
   // properties --------------------------------------------------------------------
   // -------------------------------------------------------------------------------
-  _version: 1,
+  _version: 0.1,
   _editor: $("#languanizrEditor"),
   _body: $("#editorBody"),
   _head: $("#editorHead"),
@@ -13,11 +24,14 @@ var languanizrEditor = {
   // public functions --------------------------------------------------------------
   // -------------------------------------------------------------------------------
   init: function(){
-    this._bindDocumentEvents();
-    var cells = this._body.find(".dataCol");
-    this._bindBodyCellEvents(cells);
-    var cells = this._head.find(".langCol");
-    this._bindHeadCellEvents(cells);
+    $("#version").text(languanizrEditor._version);
+    var bodyCells = this._body.find(".dataCol");
+    var headCells = this._head.find(".langCol");
+    this._bindDocumentEvents()
+        ._bindBodyCellEvents(bodyCells)
+        ._bindHeadCellEvents(headCells)
+        ._head.find(".col1").focus();
+    return this;
   },
 
 
@@ -30,9 +44,11 @@ var languanizrEditor = {
       var keyCode = e.keyCode;
       if(e.ctrlKey){
         if(languanizrEditor._controlPBehavior(keyCode)){return false;} // new language package
-        if(languanizrEditor._controlEBehavior(keyCode)){return false;} // new language package
       }
+      languanizrEditor._escapeBehavior(keyCode); // back to editor
     });
+
+    return this;
   },
   _bindBodyCellEvents: function(cells){
     // cell events
@@ -45,6 +61,7 @@ var languanizrEditor = {
       }).on("keydown", function(e){
         var keyCode = e.keyCode;
         var me      = $(this);
+
         if(!e.shiftKey){
           languanizrEditor._tabBehavior(me, keyCode); // next cell, last cell create new row
         }
@@ -59,14 +76,18 @@ var languanizrEditor = {
           languanizrEditor._controlEndBehavior(keyCode); // last cell
           if(languanizrEditor._controlBackspaceBehavior(me, keyCode)){return false;} // delete language package
           if(languanizrEditor._controlDelBehavior(me, keyCode)){return false;} // delete row
+          if(languanizrEditor._controlEBehavior(me, keyCode)){return false;} // generate language json and make it ready for copy
         } 
 
         languanizrEditor._arrowTopBehaviour(me, keyCode); // top cell
         languanizrEditor._arrowRightBehaviour(me, keyCode); // right cell
         languanizrEditor._arrowBottomBehaviour(me, keyCode); // bottom cell
         languanizrEditor._arrowLeftBehaviour(me, keyCode); // left cell
+
       });
     });
+
+    return this;
   },
   _bindHeadCellEvents: function(cells){
     // cell events
@@ -86,6 +107,7 @@ var languanizrEditor = {
           languanizrEditor._controlPosBehavior(keyCode); // first cell
           languanizrEditor._controlEndBehavior(keyCode); // last cell
           if(languanizrEditor._controlBackspaceBehavior(me, keyCode)){return false;} // delete language package
+          if(languanizrEditor._controlEBehavior(me, keyCode)){return false;} // generate language json and make it ready for copy
         } 
 
         languanizrEditor._arrowRightBehaviour(me, keyCode); // right cell
@@ -93,6 +115,8 @@ var languanizrEditor = {
         languanizrEditor._arrowLeftBehaviour(me, keyCode); // left cell
       });
     });
+
+    return this;
   },
 
 
@@ -101,10 +125,8 @@ var languanizrEditor = {
   // private keycode functions -----------------------------------------------------
   // -------------------------------------------------------------------------------
   _tabBehavior: function(cell, keyCode){
-    if(keyCode == 9){
-      if(languanizrEditor._isLastCell(cell)){
-        languanizrEditor._createRow();
-      }
+    if((keyCode == 9) && languanizrEditor._isLastCell(cell)){
+      languanizrEditor._createRow();
     }
   },
   _enterBehavior: function(cell, keyCode){
@@ -125,6 +147,16 @@ var languanizrEditor = {
     }
     return false;
   },
+  _escapeBehavior: function(keyCode){
+    if(keyCode == 27){
+      var content = $("#contentWrapper");
+
+      if(content.hasClass("json")){
+        content.removeClass("json").addClass("editor");
+        $("#lastFocused").focus();
+      } 
+    }
+  },
   
   // --------------------------------------------------------------- ctrl combo keys
   _controlPBehavior: function(keyCode){
@@ -134,50 +166,47 @@ var languanizrEditor = {
     }
     return false;
   },
-  _controlEBehavior: function(keyCode){
+  _controlEBehavior: function(cell, keyCode){
     if(keyCode == 69){
-      var ids = languanizrEditor._body.find(".idCol");
-      var colCount = languanizrEditor._getColCount();
+      var ids      = languanizrEditor._body.find(".idCol");
       var rowCount = languanizrEditor._getRowCount();
-      var i, transI, json, col, me;
+      var col      = languanizrEditor._getColIndex(cell);
+      var transI, json, me;
 
-      for(i = 0; i < colCount; ++i){
-        colSelector = ".col" + (i + 1);
+      json = '{"title": "Languanizr language package", ' + 
+              '"description": "Languanizr is a smart multilanguage toolkit for websites.", ' +
+              '"url": "http://www.languanizr.com", ' +
+              '"editor_version": ' + languanizrEditor._version + ', ' +
+              '"package_version": ' + $("#nextPackageVersion").text() + ', ' + 
+              '"language": "' + languanizrEditor._head.find(".col" + col).text() + '", ' +
+              '"translations": {';
 
-        json = '{"title": "languanizr.js language package", ' + 
-                '"description": "languanizr.js is a small client side translation script. This language package was created by the languanizr package editor."' +
-                '"url": "http://www.languanizr.com"' +
-                '"editor_version": ' + languanizrEditor._version + ', ' +
-                '"package_version": ' + $("#packageVersion").text() + ', ' + 
-                '"language": "' + languanizrEditor._head.find(colSelector).text() + '", ' +
-                '"translations": {';
-
-        for(transI = 1; transI <= rowCount; ++transI){
-          me   = $(ids[(transI - 1)]);
-          json += ('"' + me.text() + '": "' + me.siblings(colSelector).text() + '"');
-          json += (transI != rowCount) ? ", " : "";
-        }
-
-        json += '}}';
+      for(transI = 1; transI <= rowCount; ++transI){
+        me   = $(ids[(transI - 1)]);
+        json += ('"' + me.text() + '": "' + me.siblings(".col" + col).text() + '"');
+        json += (transI != rowCount) ? ", " : "";
       }
+
+      json += '}}';
+      
+
+      $("#contentWrapper").removeClass().addClass("contentWrapper json");
+      $("#field").val(json).select();
 
       return true;
     }
     return false;
   },
   _controlDelBehavior: function(cell, keyCode){
-    if(keyCode == 46){
-      var rowCount = languanizrEditor._getRowCount();
+    if((keyCode == 46) && (languanizrEditor._getRowCount() > 1)){
+      var col = languanizrEditor._getColIndex(cell);
 
-      if(rowCount > 1){
-        var col = languanizrEditor._getColIndex(cell);
-
-        // prev element exists?
-        if(!languanizrEditor._focusNextRow(cell, col)){
-          languanizrEditor._focusPrevRow(cell, col);
-        }
-        cell.off("keydown").parent().remove();
+      // prev element exists?
+      if(!languanizrEditor._focusNextRow(cell, col)){
+        languanizrEditor._focusPrevRow(cell, col);
       }
+      cell.off("keydown").parent().remove();
+     
       return true;
     }
     return false;
@@ -241,7 +270,6 @@ var languanizrEditor = {
 
 
 
-
   // -------------------------------------------------------------------------------
   // private row, col helper functions ---------------------------------------------
   // -------------------------------------------------------------------------------
@@ -258,25 +286,21 @@ var languanizrEditor = {
     var cols = newElement.find(".dataCol");
 
     editor.attr("data-latest-id", nextId);
-    languanizrEditor._bindBodyCellEvents(cols);
-    languanizrEditor._body.append(newElement);
+    languanizrEditor._bindBodyCellEvents(cols)
+                    ._body.append(newElement);
   },
   _createColumn: function(){
-    var editor   = languanizrEditor._editor;
-    var head     = languanizrEditor._head;
-    var body     = languanizrEditor._body;
     var count    = languanizrEditor._getColCount();
     var rowCount = languanizrEditor._getRowCount();
+    var rows     = languanizrEditor._body.find("tr");
     var curRow, rowIndex, element, headElement;
 
-    if(count == 0){
-      head.append('<th id="idCol"></th>');
-    }
+    if(count == 0){head.append('<th id="idCol"></th>');}
     ++count;
-    headElement = $('<th class="col' + count + ' langCol" contenteditable="true">' + "super cool language" + '</th>');
-    languanizrEditor._bindHeadCellEvents(headElement);
-    head.append(headElement);
 
+    headElement = $('<th class="col' + count + ' langCol" contenteditable="true">' + "super cool language" + '</th>');
+    languanizrEditor._bindHeadCellEvents(headElement)
+                    ._head.append(headElement);
 
     for(rowIndex = 0; rowIndex < rowCount; ++rowIndex){
 
@@ -290,9 +314,8 @@ var languanizrEditor = {
       languanizrEditor._bindBodyCellEvents(element);
       curRow.append(element);
     }
-    head.find("th:last").focus();
+    languanizrEditor._head.find("th:last").focus();
   },
-
 
 
 
@@ -310,16 +333,16 @@ var languanizrEditor = {
   },
   _getColIndex: function(cell){
     return cell.attr("class")
-                  .replace("dataCol", "")
-                  .replace("langCol", "")
-                  .replace("col", "");
+               .replace("dataCol", "")
+               .replace("langCol", "")
+               .replace("col", "");
   },
   _focusPrevRow: function(curCell, col){
     var prev = curCell.parent().prev("tr");
 
     // prev element exists?
     if(prev.length != 0){
-      prev.find(".col" + col).focus();
+      var cell = prev.find(".col" + col).focus();
       return true;
     }
 
@@ -343,7 +366,7 @@ var languanizrEditor = {
     languanizrEditor._body.find("tr:last").find(".col" + col).focus();
   },
   _getColCount: function(){
-    return languanizrEditor._head.find("th").length - 1;
+    return languanizrEditor._head.find("th").length - 1; // count not the id column
   },
   _getRowCount: function(){
     return languanizrEditor._body.find("tr").length;

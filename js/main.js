@@ -5,6 +5,7 @@ $(function(){
 
     $("#contentWrapper").removeClass("home")
                         .removeClass("editor")
+                        .removeClass("json")
                         .addClass(me.attr("id"));
     $("#nav").find(".active").removeClass("active");
     me.addClass("active");
@@ -13,5 +14,4 @@ $(function(){
   });
 
   languanizrEditor.init();
-
 });
