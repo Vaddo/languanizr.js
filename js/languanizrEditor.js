@@ -3,7 +3,7 @@
  * Create language packages simple and fast with the online language editor.
  * Online editor version 0.1
  * Http://www.languanizr.com
- * https://github.com/Vaddo/languanizr.js
+ * https://github.com/Vaddo/languanizr
  *
  * MIT licensed
  *
