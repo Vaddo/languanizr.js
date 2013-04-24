@@ -1,9 +1,12 @@
 /**
- * Languanizr.js is a smart multilanguage toolkit for websites.
+ * Languanizr.js is smart client side translation script
+ * Create multi language sites simple and fast with the 
+ * client side translation script and the online language editor.
+ * 
  * Create language packages simple and fast with the online language editor.
  * Online editor version 0.1
  * Http://www.languanizr.com
- * https://github.com/Vaddo/languanizr
+ * https://github.com/Vaddo/languanizr.js/
  *
  * MIT licensed
  *

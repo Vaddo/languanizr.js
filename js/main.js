@@ -14,4 +14,18 @@ $(function(){
   });
 
   languanizrEditor.init();
+  languanizr.setOptions({permanent:true}).loadLanguage("http://localhost/languanizr/js/english.json");
+
+  $("#english").bind("click", function(){
+    languanizr.reloadLanguage("http://localhost/languanizr/js/english.json");
+    return false;
+  });
+  $("#german").bind("click", function(){
+    languanizr.reloadLanguage("http://localhost/languanizr/js/german.json");
+    return false;
+  });
+
+
+  // languanizr.setOptions({languagePack:"http://192.168.0.103/languanizr/js/english.json", permanent:true}).loadLanguage();
+
 });
