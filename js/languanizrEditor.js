@@ -36,6 +36,9 @@ var languanizrEditor = {
         ._head.find(".col1").focus();
     return this;
   },
+  triggerGeneration: function(){
+    languanizrEditor._controlEBehavior(me, keyCode);
+  },
 
 
 

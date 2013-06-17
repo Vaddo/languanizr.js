@@ -21,7 +21,7 @@ var languanizr = {
     attrScan: ["alt", "value", "title"]
   },
   _options: {},
-
+//xxxvh setAttrScan ?
 
 
   // -------------------------------------------------------------------------------

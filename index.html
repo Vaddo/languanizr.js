@@ -3,6 +3,7 @@
   <head>
     <title>languanizr.js</title>
     <link rel="stylesheet" type="text/css" href="./css/screen.css">
+    <link rel="stylesheet" type="text/css" href="./css/introjs.min.css">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="description" content="">
@@ -11,8 +12,10 @@
   <body>
     <div class="page" id="page">
       <div class="head">
-        <h3 data-languanize>languanizr.js</h3>
-        <h4 data-languanize>{$#1#$}</h4>
+        <div data-step="1" data-intro="Languanizr is ... ">
+          <h3 data-languanize>languanizr.js</h3>
+          <h4 data-languanize>{$#1#$}</h4>
+        </div>
         <nav class="topNav">
           <a data-languanize id="german" class="button" href="#">{$#2#$}</a>
           <a data-languanize id="english" class="button" href="#">{$#3#$}</a>
@@ -21,44 +24,50 @@
         </nav>
       </div>
       <hr>
-      <nav id="nav" class="nav">
+      <nav id="nav" class="nav" data-step="4" data-intro="If you want to create some language packages, open the language editor ...">
         <a data-languanize id="home" class="button active" href="#">{$#28#$}</a>
         <a data-languanize id="editor" class="button" href="#">Editor</a>
       </nav>
       <div id="contentWrapper" class="contentWrapper home">
         <div class="homeContainer">
           <div class="product">
-            <div class="someText">
+            <div data-languanize class="someText" data-step="2" data-intro="So you can ...">
               <h1>languanizr.js</h1>
               <h2 data-languanize >{$#5#$}</h2>
             </div>
             <div class="buttonBar">
-              <a data-languanize href="#" class="fatButton tour">{$#6#$} <br><span class="descr">{$#7#$}</span></a>
+              <a id="tour" data-languanize class="fatButton tour" href="#">{$#6#$} <br><span class="descr">{$#7#$}</span></a>
               <span data-languanize class="or">{$#27#or$}</span>
               <a data-languanize href="#" class="fatButton download">{$#26#$} <span class="descr">languanizr.js v.0.1</span></a>
             </div>
           </div>
-          <hr>
-          <div class="content">
-            <h5 data-languanize>{$#8#$}</h5>
+          <div class="content" data-step="3" data-intro="Some pros ..." data-position="top">
+            <hr>
+            <span class="icon-flag icon-2x"></span><h5 data-languanize>{$#8#$}</h5>
             <p data-languanize>{$#9#$}</p>
+            <hr/>
 
-            <h5 data-languanize>{$#10#$}</h5>
+            <span class="icon-wrench icon-2x"></span><h5 data-languanize>{$#10#$}</h5>
             <p data-languanize>{$#11#$}</p>
+            <hr/>
 
-            <h5 data-languanize>{$#12#$}</h5>
+            <span class="icon-bolt icon-2x"></span><h5 data-languanize>{$#12#$}</h5>
             <p data-languanize>{$#13#$}</p>
+            <hr/>
 
-            <h5 data-languanize>{$#14#$}</h5>
+            <span class="icon-plus icon-2x"></span><h5 data-languanize>{$#14#$}</h5>
             <p data-languanize>{$#15#$}</p>
+            <hr/>
 
-            <h5 data-languanize>{$#16#$}</h5>
+            <span class="icon-fire icon-2x"></span><h5 data-languanize>{$#16#$}</h5>
             <p data-languanize>{$#17#$}</p>
+            <hr/>
 
-            <h5 data-languanize>{$#18#$}</h5>
+            <span class="icon-beer icon-2x"></span><h5 data-languanize>{$#18#$}</h5>
             <p data-languanize>{$#19#$}</p>
+            <hr/>
 
-            <h5 data-languanize>{$#20#$}</h5>
+            <span class="icon-globe icon-2x"></span><h5 data-languanize>{$#20#$}</h5>
             <p data-languanize>{$#21#$}</p>
 
           </div>
@@ -68,9 +77,24 @@
             <span class="right" data-languanize>{$#23#$} <a href="http://www.patternwall.net" target="_blank">Patternwall.net</a></span>
           </div>
         </div>
-        <div class="editorContainer">
+        <div class="editorContainer" data-step="5" data-intro="You can create easy your own language packages here ...">
           <h4>online editor - v. <span id="version"></span></h4>
           <span data-languanize class="nextPackageVersion">{$#4#$} <span id="nextPackageVersion">1</span></span>
+          <div class="shortKeysBox">
+            <code>←</code>, <code>↑</code>, <code>→</code>, <code>↓</code><span class="description">Cell navigation</span>
+            <code>ENTER</code><span class="description">Next cell in same column / New row</span><br/>
+            <code>TAB</code><span class="description">Next cell / New row</span>
+            <code>CTRL + DEL</code><span class="description">Delete row</span>
+            <code>CTRL + POS</code><span class="description">Jump to first cell</span>
+            <code>CTRL + P</code><span class="description">Create new language</span>
+            <code>CTRL + END</code><span class="description">Jump to last cell</span>
+            <code>CTRL + BACKSPACE</code><span class="description">Delete selected language</span>
+            <code>CTRL + E</code><span class="description">Create package for selected language</span>
+            <code>ESCAPE</code><span class="description">Return to editor</span>
+          </div>
+            <!--a id="help" class="right icon-question-sign" href="#" data-step="6" data-intro="Click on that icon to see all awesome short keys to boost your creation ..."></a-->
+          
+
           <table id="languanizrEditor" data-latest-id="1" class="languanizrEditor" cellspacing="0" cellpadding="0" border="0">
             <thead>
               <tr id="editorHead" class="editorHead">
@@ -94,10 +118,12 @@
       </div>
     </div>
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <script src="js/languanizrEditor.js"></script>
     <script src="js/languanizr.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/vendor/intro.min.js"></script>
+
       <script type="text/javascript" src="f5less.js"></script>
         <script type="text/javascript">
           f5less.connect({
