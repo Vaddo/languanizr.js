@@ -514,7 +514,6 @@ body {
   margin: 0px;
   padding: 0px;
   background-image: url("../img/bg.png");
-  overflow-x: hidden;
 }
 
 hr {
@@ -573,6 +572,7 @@ p {
 
 .page {
   max-width: 700px;
+  width: auto;
   margin: 20px auto 0 auto;
   padding-left: 10px;
   padding-right: 10px;

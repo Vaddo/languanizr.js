@@ -5,7 +5,7 @@
     "editor_version": 0.1,
     "package_version": 1,
     "language": "english",
-    "translations": {
+    "words": {
         "1": "A smart client side translation script",
         "2": "Deutsch",
         "3": "English",
@@ -33,6 +33,7 @@
         "25": "... following by some words",
         "26": "Download",
         "27": "or",
-        "28": "Home"
+        "28": "Home",
+        "29": "Back"
     }
 }

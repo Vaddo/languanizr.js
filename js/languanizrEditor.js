@@ -182,7 +182,7 @@ var languanizrEditor = {
               '"editor_version": ' + languanizrEditor._version + ', ' +
               '"package_version": ' + $("#nextPackageVersion").text() + ', ' + 
               '"language": "' + languanizrEditor._head.find(".col" + col).text() + '", ' +
-              '"translations": {';
+              '"words": {';
 
       for(transI = 1; transI <= rowCount; ++transI){
         me   = $(ids[(transI - 1)]);

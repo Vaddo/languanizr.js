@@ -5,7 +5,7 @@
     "editor_version": 0.1,
     "package_version": 1,
     "language": "german",
-    "translations": {
+    "words": {
         "1": "Clientseitiges Übsersetzungsskript",
         "2": "Deutsch",
         "3": "English",
@@ -33,6 +33,7 @@
         "25": "... gefolgt von beliebigen Wörtern",
         "26": "Herunterladen",
         "27": "oder",
-        "28": "Start"
+        "28": "Start",
+        "29": "Zurück"
     }
 }

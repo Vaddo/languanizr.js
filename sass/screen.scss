@@ -25,7 +25,6 @@ body{
   margin:0px;
   padding:0px;
   background-image:url("../img/bg.png");
-  overflow-x:hidden;
 }
 hr{
   border:none;
@@ -70,6 +69,7 @@ p{
 .right{float:right;}
 .page{
   max-width:$pageWidth;
+  width: auto;
   margin:$space auto 0 auto;
   padding-left:$space/2;
   padding-right:$space/2;
