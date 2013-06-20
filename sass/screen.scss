@@ -27,7 +27,7 @@ body{
   margin:0px;
   padding:0px;
   background-image:url("../img/bg.png");
-  overflow:hidden;
+  overflow-x: hidden;
 }
 hr{
   border:none;
@@ -78,6 +78,7 @@ code{
 
 // ------------------------------------------------------------------- PAGE
 .right{float:right;}
+.clear{clear:both;}
 .page{
   max-width:$pageWidth;
   width: auto;
@@ -99,7 +100,7 @@ code{
 .nav{@include pos(100px,'','',$space/2);}
 .nav2{@include pos(100px,$space/2,'','');}
 .someText{
-  margin-top:100px;
+  margin-top:80px;
   text-align: center;
 }
 .or{
@@ -138,16 +139,16 @@ code{
   position: relative;
 
   &.home{
-    .editorContainer{right:-1000px;}
-    .jsonContainer{right:-1000px;}
+    .editorContainer{right:-2000px;}
+    .jsonContainer{right:-2000px;}
   }
   &.editor{
-    .homeContainer{left:-1000px;}
-    .jsonContainer{right:-1000px;}
+    .homeContainer{left:-2000px;}
+    .jsonContainer{right:-2000px;}
   }
   &.json{
-    .editorContainer{left:-1000px;}
-    .homeContainer{left:-1000px;}
+    .editorContainer{left:-2000px;}
+    .homeContainer{left:-2000px;}
   }
 }
 
@@ -220,13 +221,16 @@ $editorPrimaryColor:#e2e2e2;
 .shortKeysBox{
   font-size:12px;
   padding:10px 5px;
-  background-color: red;
-  padding-right:140px;
+  padding-right:100px;
+  height:210px;
 }
 .description{
+  display: inline-block;
   margin:0 $space $space 5px;
   color:lighten($primaryColor, 10%);
 }
+.leftKeyBox, .rightKeyBox{width:240px;float:left;}
+
 .nextPackageVersion{
   font-size:12px;
   @include pos('',0,'','');

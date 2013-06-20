@@ -59,7 +59,7 @@ var languanizrEditor = {
   _bindBodyCellEvents: function(cells){
     // cell events
     cells.on("focusin", function(){
-      var me = $(this);
+      var me = $(this); 
       me.parent().addClass("selected");
       me.one("focusout", function(){
         $("#lastFocused").attr("id", "");

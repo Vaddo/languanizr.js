@@ -77,25 +77,29 @@
             <span class="right" data-languanize>{$#23#$} <a href="http://www.patternwall.net" target="_blank">Patternwall.net</a></span>
           </div>
         </div>
-        <div class="editorContainer" data-step="5" data-intro="You can create easy your own language packages here ...">
+        <div class="editorContainer">
           <h4>online editor - v. <span id="version"></span></h4>
           <span data-languanize class="nextPackageVersion">{$#4#$} <span id="nextPackageVersion">1</span></span>
-          <div class="shortKeysBox">
-            <code>←</code>, <code>↑</code>, <code>→</code>, <code>↓</code><span class="description">Cell navigation</span>
-            <code>ENTER</code><span class="description">Next cell in same column / New row</span><br/>
-            <code>TAB</code><span class="description">Next cell / New row</span>
-            <code>CTRL + DEL</code><span class="description">Delete row</span>
-            <code>CTRL + POS</code><span class="description">Jump to first cell</span>
-            <code>CTRL + P</code><span class="description">Create new language</span>
-            <code>CTRL + END</code><span class="description">Jump to last cell</span>
-            <code>CTRL + BACKSPACE</code><span class="description">Delete selected language</span>
-            <code>CTRL + E</code><span class="description">Create package for selected language</span>
-            <code>ESCAPE</code><span class="description">Return to editor</span>
+          <div class="shortKeysBox" data-step="6" data-intro="xxx">
+            <div class="leftKeyBox">
+              <code>←</code>, <code>↑</code>, <code>→</code>, <code>↓</code><span class="description">Cell navigation</span><br>
+              <code>ENTER</code><span class="description">Next cell in column / New row</span><br>
+              <code>ESCAPE</code><span class="description">Return to editor</span><br>
+              <code>TAB</code><span class="description">Next cell / New row</span><br>
+              <code>CTRL + POS</code><span class="description">First cell</span><br>
+              <code>CTRL + END</code><span class="description">Last cell</span>
+            </div>
+            <div class="rightKeyBox">
+              <code>CTRL + P</code><span class="description">New language</span><br>
+              <code>CTRL + BACKSPACE</code><span class="description">Delete language</span><br>
+              <code>CTRL + DEL</code><span class="description">Delete row</span><br>
+              <code>CTRL + C</code><span class="description">Copy placeholder</span>
+              <code>CTRL + E</code><span class="description">Create package</span><br>
+            </div>
           </div>
-            <!--a id="help" class="right icon-question-sign" href="#" data-step="6" data-intro="Click on that icon to see all awesome short keys to boost your creation ..."></a-->
-          
+          <div class="clear"></div>
 
-          <table id="languanizrEditor" data-latest-id="1" class="languanizrEditor" cellspacing="0" cellpadding="0" border="0">
+          <table id="languanizrEditor" data-latest-id="1" class="languanizrEditor" cellspacing="0" cellpadding="0" border="0" data-step="5" data-intro="You can create easy your own language packages here ...">
             <thead>
               <tr id="editorHead" class="editorHead">
                 <th id="idCol" class="idCol">#</th>

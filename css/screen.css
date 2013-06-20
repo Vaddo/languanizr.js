@@ -1963,7 +1963,7 @@ body {
   margin: 0px;
   padding: 0px;
   background-image: url("../img/bg.png");
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 hr {
@@ -2033,6 +2033,10 @@ code {
   float: right;
 }
 
+.clear {
+  clear: both;
+}
+
 .page {
   max-width: 700px;
   width: auto;
@@ -2076,7 +2080,7 @@ code {
 }
 
 .someText {
-  margin-top: 100px;
+  margin-top: 80px;
   text-align: center;
 }
 
@@ -2131,22 +2135,22 @@ code {
   position: relative;
 }
 .contentWrapper.home .editorContainer {
-  right: -1000px;
+  right: -2000px;
 }
 .contentWrapper.home .jsonContainer {
-  right: -1000px;
+  right: -2000px;
 }
 .contentWrapper.editor .homeContainer {
-  left: -1000px;
+  left: -2000px;
 }
 .contentWrapper.editor .jsonContainer {
-  right: -1000px;
+  right: -2000px;
 }
 .contentWrapper.json .editorContainer {
-  left: -1000px;
+  left: -2000px;
 }
 .contentWrapper.json .homeContainer {
-  left: -1000px;
+  left: -2000px;
 }
 
 .buttonBar {
@@ -2239,13 +2243,19 @@ code {
 .shortKeysBox {
   font-size: 12px;
   padding: 10px 5px;
-  background-color: red;
-  padding-right: 140px;
+  padding-right: 100px;
+  height: 210px;
 }
 
 .description {
+  display: inline-block;
   margin: 0 20px 20px 5px;
   color: #5e5e5e;
+}
+
+.leftKeyBox, .rightKeyBox {
+  width: 240px;
+  float: left;
 }
 
 .nextPackageVersion {
