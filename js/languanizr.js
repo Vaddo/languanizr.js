@@ -1,10 +1,9 @@
 /**
  * Languanizr.js is smart client side translation script
- * Create multi language sites simple and fast with the 
- * client side translation script and the online language editor.
+ * for creating fast and simple multi language sites.
  *
  * Http://www.languanizrjs.com
- * https://github.com/Vaddo/languanizr.js/tree/editor
+ * https://github.com/Vaddo/languanizr.js/tree/master
  *
  * MIT licensed
  *
@@ -14,7 +13,6 @@ var languanizr = {
   // -------------------------------------------------------------------------------
   // properties --------------------------------------------------------------------
   // -------------------------------------------------------------------------------
-  _toolVersion:0.1,
   _defaultOptions: {
     auto: true,
     permanent: false,
@@ -65,18 +63,11 @@ var languanizr = {
     }
   },
   _validateLanguagePack: function(loadedPack){
-    if(languanizr._isNumber(loadedPack.editor_version) && 
-       languanizr._isNumber(loadedPack.package_version) && 
-       loadedPack.words && 
-       languanizr._isString(loadedPack.language)){
+    if(languanizr._isNumber(loadedPack.package_version) && 
+      loadedPack.words && 
+      languanizr._isString(loadedPack.language)){
 
-      if(languanizr._toolVersion != loadedPack.editor_version){
-        alert("languanizr.js - Incompatible language package!")
-        return false;
-      }else{
-        return true;
-      }
-
+      return true;
     }else{
       alert("languanizr.js - Invalid language package!");
       return false;

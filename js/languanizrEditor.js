@@ -16,7 +16,7 @@ var languanizrEditor = {
   // -------------------------------------------------------------------------------
   // properties --------------------------------------------------------------------
   // -------------------------------------------------------------------------------
-  _version: 0.1,
+  _version: "0.1.0",
   _editor: $("#languanizrEditor"),
   _body: $("#editorBody"),
   _head: $("#editorHead"),
@@ -27,7 +27,6 @@ var languanizrEditor = {
   // public functions --------------------------------------------------------------
   // -------------------------------------------------------------------------------
   init: function(){
-    $("#version").text(languanizrEditor._version);
     var bodyCells = this._body.find(".dataCol");
     var headCells = this._head.find(".langCol");
     this._bindDocumentEvents()
@@ -180,9 +179,7 @@ var languanizrEditor = {
       var transI, json, me;
 
       json = '{"title": "Languanizr language package", ' + 
-              '"description": "Languanizr is a smart multilanguage toolkit for websites.", ' +
               '"url": "http://www.languanizr.com", ' +
-              '"editor_version": ' + languanizrEditor._version + ', ' +
               '"package_version": ' + $("#nextPackageVersion").text() + ', ' + 
               '"language": "' + languanizrEditor._head.find(".col" + col).text() + '", ' +
               '"words": {';
