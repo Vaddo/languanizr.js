@@ -1,8 +1,6 @@
 {
     "title": "Languanizr language package",
-    "description": "Languanizr is a smart multilanguage toolkit for websites.",
-    "url": "http://www.languanizr.com",
-    "editor_version": 0.1,
+    "url": "http://www.languanizrjs.com",
     "package_version": 1,
     "language": "german",
     "words": {
@@ -12,7 +10,7 @@
         "4": "Sprachpaket version:",
         "5": "Erstelle mehrsprachige Webseiten ganz schnell und super einfach mit dem clientseitigen Übersetzungsskript und dem Spracheditor.",
         "6": "Tour",
-        "7": "Schau's dir an!",
+        "7": "XXX",
         "8": "Übersetzt alles",
         "9": "Statischen und dynamischen Text, sowie Tag Attribute und statische Eingabefelder.",
         "10": "Leichtes einrichten",
