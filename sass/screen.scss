@@ -110,9 +110,6 @@ code{
 .content{
   padding-bottom:$space*2;
 
-  .contentBox{
-    width: 40%;
-  }
   [class^="icon-"],[class*=" icon-"]{
     color:$altColor;
     float:left;
@@ -137,6 +134,7 @@ code{
 }
 .contentWrapper{
   position: relative;
+  padding-bottom:100px;
 
   &.home{
     .editorContainer{right:-2000px;}
@@ -158,14 +156,14 @@ code{
   text-align: center;
 }
 .fatButton{
-  width:150px;
+  width:120px;
   display: block;
   line-height:16px;
   cursor:pointer;
   color:white;
   font-size: 16px;
   display: inline-block;
-  padding:12px 15px;
+  padding:12px 10px;
   @include transition(all 0.2s linear);
   @include border-radius(7px);
   .descr{font-size:12px;}
@@ -181,7 +179,6 @@ $bgcTour:#3072b3;
     border:solid 1px darken($bgcHover, 10%);
   }
 }
-
 .download{
   background-color:$altColor;
   border:solid 1px darken($altColor, 10%);
@@ -221,19 +218,21 @@ $editorPrimaryColor:#e2e2e2;
 .shortKeysBox{
   font-size:12px;
   padding:10px 5px;
-  padding-right:100px;
-  height:210px;
+  height:150px;
 }
 .description{
   display: inline-block;
   margin:0 $space $space 5px;
   color:lighten($primaryColor, 10%);
 }
-.leftKeyBox, .rightKeyBox{width:240px;float:left;}
+.leftKeyBox, .middleKeyBox, .rightKeyBox{float:left;}
+.leftKeyBox{width:230px;}
+.middleKeyBox{width:240px;}
+.rightKeyBox{width:200px;}
 
 .nextPackageVersion{
   font-size:12px;
-  @include pos('',0,'','');
+  @include pos(-50px,0,'','');
 }
 .idCol{
   width:40px;
@@ -245,7 +244,7 @@ $editorPrimaryColor:#e2e2e2;
 }
 .languanizrEditor{
   width:100%;
-  margin-top:40px;
+  margin-top:20px;
   margin-bottom:40px;
 
   td:focus, th:focus{
