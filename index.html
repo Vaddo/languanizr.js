@@ -12,7 +12,7 @@
   <body>
     <div class="page" id="page">
       <div class="head">
-        <div data-step="1" data-intro="Hell yeah thats it!">
+        <div data-languanize data-step="1" data-intro="{$#7#$}">
           <h3 data-languanize>languanizr.js</h3>
           <h4 data-languanize>{$#1#$}</h4>
         </div>
@@ -20,28 +20,31 @@
           <a data-languanize id="german" class="button" href="#">{$#2#$}</a>
           <a data-languanize id="english" class="button" href="#">{$#3#$}</a>
           <span>-</span>
-          <a class="button" target="_blank" href="https://github.com/Vaddo/languanizr">Github</a>
+          <a class="button" target="_blank" href="https://github.com/Vaddo/languanizr.js/tree/master">Github</a>
         </nav>
       </div>
       <hr>
-      <nav id="nav" class="nav" data-step="4" data-intro="Ok. If you want to create some language packages, open the language editor like this.">
+
+      <!-- XXXVH: After the translation the click event is broken, if the parent element has a data-languanize attribute too. -->
+
+      <nav id="nav" class="nav" data-step="4" data-intro="{$#30#$}">
         <a data-languanize id="home" class="button active" href="#">{$#28#$}</a>
-        <a data-languanize id="editor" class="button" href="#">Editor</a>
+        <a data-languanize id="editor" class="button" href="#">{$#31#$}</a>
       </nav>
       <div id="contentWrapper" class="contentWrapper home">
         <div class="homeContainer">
           <div class="product">
-            <div data-languanize class="someText" data-step="2" data-intro="Jop.. very simple and very fast ;) I show you but first ...">
+            <div data-languanize class="someText" data-step="2" data-intro="{$#32#$}">
               <h1>languanizr.js</h1>
               <h2 data-languanize >{$#5#$}</h2>
             </div>
             <div class="buttonBar">
               <a id="tour" data-languanize class="fatButton tour" href="#">{$#6#$}</a>
-              <span data-languanize class="or">{$#27#or$}</span>
+              <span data-languanize class="or">{$#27#$}</span>
               <a data-languanize href="#" class="fatButton download">{$#26#$}</a>
             </div>
           </div>
-          <div class="content" data-step="3" data-intro="... some pros." data-position="top">
+          <div class="content" data-step="3" data-languanize data-intro="{$#33#$}" data-position="top">
             <hr>
             <span class="icon-flag icon-2x"></span><h5 data-languanize>{$#8#$}</h5>
             <p data-languanize>{$#9#$}</p>
@@ -78,28 +81,29 @@
           </div>
         </div>
         <div class="editorContainer">
-          <h4>online editor - v. <span id="version"></span></h4>
           <span data-languanize class="nextPackageVersion">{$#4#$} <span id="nextPackageVersion">1</span></span>
-          <div class="shortKeysBox" data-step="6" data-intro="To boost your creation you *can* eehm sorry you must use these short keys. XD">
+          <div data-languanize class="shortKeysBox" data-step="6" data-intro="{$#34#$}">
             <div class="leftKeyBox">
-              <code>←</code>, <code>↑</code>, <code>→</code>, <code>↓</code><span class="description">Cell navigation</span><br>
-              <code>ENTER</code><span class="description">Next cell in column / New row</span><br>
-              <code>ESCAPE</code><span class="description">Return to editor</span><br>
-              <code>TAB</code><span class="description">Next cell / New row</span><br>
-              <code>CTRL + POS</code><span class="description">First cell</span><br>
-              <code>CTRL + END</code><span class="description">Last cell</span>
+              <code>←</code>, <code>↑</code>, <code>→</code>, <code>↓</code><span class="description" data-languanize>{$#35#$}</span><br>
+              <code>ENTER</code><span class="description" data-languanize>{$#36#$}</span><br>
+              <code>ESCAPE</code><span class="description" data-languanize>{$#37#$}</span><br>
+              <code>TAB</code><span class="description" data-languanize>{$#38#$}</span>
+            </div>
+            <div class="middleKeyBox">
+              <code>CTRL + POS</code><span class="description" data-languanize>{$#39#$}</span><br>
+              <code>CTRL + END</code><span class="description" data-languanize>{$#40#$}</span><br>
+              <code>CTRL + P</code><span class="description" data-languanize>{$#41#$}</span><br>
+              <code>CTRL + BACKSPACE</code><span class="description" data-languanize>{$#42#$}</span>
             </div>
             <div class="rightKeyBox">
-              <code>CTRL + P</code><span class="description">New language</span><br>
-              <code>CTRL + BACKSPACE</code><span class="description">Delete language</span><br>
-              <code>CTRL + DEL</code><span class="description">Delete row</span><br>
-              <code>CTRL + C</code><span class="description">Copy placeholder</span>
-              <code>CTRL + E</code><span class="description">Create package</span><br>
+              <code>CTRL + DEL</code><span class="description" data-languanize>{$#43#$}</span><br>
+              <code>CTRL + C</code><span class="description" data-languanize>{$#44#$}</span><br>
+              <code>CTRL + E</code><span class="description" data-languanize>{$#45#$}</span>
             </div>
           </div>
           <div class="clear"></div>
 
-          <table id="languanizrEditor" data-latest-id="1" class="languanizrEditor" cellspacing="0" cellpadding="0" border="0" data-step="5" data-intro="With the editor you are able to create easy your own language packages. After that you can load them with the languanizr.js for the super awesome translation.">
+          <table data-languanize id="languanizrEditor" data-latest-id="1" class="languanizrEditor" cellspacing="0" cellpadding="0" border="0" data-step="5" data-intro="{$#46#$}">
             <thead>
               <tr id="editorHead" class="editorHead">
                 <th id="idCol" class="idCol">#</th>
@@ -110,13 +114,13 @@
               <tr>
                 <td class="idCol">1</td>
                 <td data-languanize class="col1 dataCol" contenteditable="true">{$#25#$}</td>
-              </td>
+              </tr>
             </tbody>
           </table>
           <input id="languanizrEditorPlaceholder" class="languanizrEditorPlaceholder" type="text"/>
         </div>
         <div class="jsonContainer">
-          <a data-languanize id="editor" class="button back" href="#">{$#29#$}</a>
+          <a data-languanize id="backEditor" class="button back" href="#">{$#29#$}</a>
           <textarea id="field" cols="30" rows="10" class="field"></textarea>
         </div>
       </div>
