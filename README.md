@@ -13,24 +13,26 @@ For example:
 <script src="./js/languanizr.min.js"></script>
 ````
 
-**2)** Add the attribute 'data-languanize' and a placeholder **{$#1#$}** to your HTML markup.
+**2)** Add the attribute `data-languanize` and a placeholder **{$#1#$}** to your HTML markup.
 
 For example: 
 ```html
-<span data-languanize>**{$#1#$}**</span>
+<span data-languanize>{$#1#$}</span>
 ````
 or
 ```html
 <ul>
-  <li>**{$#1#$}**</li>
-  <li>**{$#2#$}**</li>
-  <li>**{$#3#$}**</li>
+  <li>{$#1#$}</li>
+  <li>{$#2#$}</li>
+  <li>{$#3#$}</li>
 </ul>
 ````
 or
 ```html
-<a href="#" title="**{$#1#$}**">**{$#1#$}**, **{$#2#$}**</a>
+<a href="#" title="{$#1#$}">{$#1#$}, {$#2#$}</a>
 ````
+
+**Hint**: You can use a placeholder for a text more than once.
 
 Optionally you can insert a fallback text into your placeholder. If no translation text found it will be loaded.
 
@@ -71,11 +73,11 @@ languanizr.setOptions({permanent:true});
             language reload in the localstorage.
 
 - `attrScan`: Define here what attributes should be searching for placeholders. 
-              By Default the script searching the html text and the attributes '["alt", "value", "title"]' for placeholders.
+              By Default the script searching the html text and the attributes `["alt", "value", "title"]` for placeholders.
 
 
 ## Roadmap
-- Language switcher
+- Automatic language selector
 - Faster translation
 
 ## Release History
