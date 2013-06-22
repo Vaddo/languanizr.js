@@ -6,37 +6,37 @@
 ## How to use
 Languanizr.js can be included easily in your webpage in three steps:
 
-**1)** Include 'languanizr.js' or the minified version in your page.
+**1)** Include **languanizr.js** or the minified version in your page.
 
 For example: 
 ```html
 <script src="./js/languanizr.min.js"></script>
 ````
 
-**2)** Add the attribute 'data-languanize' and a placeholder '{$#1#$}' to your HTML markup.
+**2)** Add the attribute 'data-languanize' and a placeholder **{$#1#$}** to your HTML markup.
 
 For example: 
 ```html
-<span data-languanize>{$#1#$}</span>
+<span data-languanize>**{$#1#$}**</span>
 ````
 or
 ```html
 <ul>
-  <li>{$#1#$}</li>
-  <li>{$#2#$}</li>
-  <li>{$#3#$}</li>
+  <li>**{$#1#$}**</li>
+  <li>**{$#2#$}**</li>
+  <li>**{$#3#$}**</li>
 </ul>
 ````
 or
 ```html
-<a href="#" title="{$#1#$}">{$#1#$}, {$#2#$}</a>
+<a href="#" title="**{$#1#$}**">**{$#1#$}**, **{$#2#$}**</a>
 ````
 
 Optionally you can insert a fallback text into your placeholder. If no translation text found it will be loaded.
 
 For example: 
 ```html
-<span data-languanize>{$#1:Hello World#$}</span>
+<span data-languanize>**{$#1:Hello World#$}**</span>
 ````
 
 **3)** Init the languanizr and load a language package.
@@ -47,6 +47,7 @@ languanizr.loadLanguage("http://your-website/languages/english.json");
 ````
 
 **Hint**: You can set some options before loading a language pack. Look at the API **Options** section further down.
+
 
 
 ## API
@@ -60,15 +61,16 @@ For example:
 languanizr.setOptions({permanent:true});
 ````
 
-- 'auto': If you want a automatic translation every time if the dom changes, 'true' or 'false'. Default is 'true'.
-- 'permanent': If you want to store your active language permanent on the client. 
-               If 'true' the language package will be stored in the Localstorage otherwise in the Sessionstorage. Default is 'false'.
+- `auto`: If you want a automatic translation every time if the dom changes, `true` or `false`. Default is `true`.
+- `permanent`: If you want to store your active language permanent on the client. 
+               If `true` the language package will be stored in the Localstorage otherwise in the Sessionstorage. Default is `false`.
 
-               **Hint**: - You can boost your translation speed by setting this option on 'true'
-                         - If this option is 'true' keep in mind that **only** other language packs or the same language pack with different version
-                           can trigger a language reload in the localstorage.
+**Hint**: - You can boost your translation speed by setting this option on `true`
+          - If this option is `true` keep in mind that **only** other language packs 
+            or the same language pack with different version can trigger a 
+            language reload in the localstorage.
 
-- 'attrScan': Define here what attributes should be searching for placeholders. 
+- `attrScan`: Define here what attributes should be searching for placeholders. 
               By Default the script searching the html text and the attributes '["alt", "value", "title"]' for placeholders.
 
 
