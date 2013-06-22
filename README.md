@@ -5,6 +5,10 @@
 
 ## How it works
 
+- Loading the language package and store it in the browser for fast access
+- Searching the DOM for the `data-languanize` attribute and replace all placeholder
+- Thats all ;)
+
 ---
 
 
@@ -81,11 +85,15 @@ languanizr.setOptions({permanent:true});
 **Options**
 You can set following options:
 
-- `auto`: If you want a automatic translation every time if the dom changes, `true` or `false`. Default is `true`.
+- `auto`: If you want a automatic translation every time if the DOM changes, `true` or `false`. Default is `true`.
+
+**Hint**: - If you set this option to `false` you need to trigger manualy the translation with the `doTranslate()` Method.
+          - Also if you want IE8 support, because DOMSubtreeModified event support comes by IE9+
+
 - `permanent`: If you want to store your active language permanent on the client. 
                If `true` the language package will be stored in the Localstorage otherwise in the Sessionstorage. Default is `false`.
 
-**Hint**: - You can boost your translation speed by setting this option on `true`
+**Hint**: - You can boost your translation speed by setting this option to `true`
           - If this option is `true` keep in mind that **only** other language packs 
             or the same language pack with different version can trigger a 
             language reload in the localstorage.
@@ -125,12 +133,31 @@ languanizr.reloadLanguage("http://your-website/languages/english.json");
 
 ---
 
+###languanizr.doTranslate()
+
+Trigger the translation/placeholder replacement.
+
+**Available since**: v0.1.0
+
+**Returns**: languanizr object.
+
+For Example:
+```javascript
+languanizr.doTranslate();
+````
+
+---
+
 ## Roadmap
 - Automatic language selector
 - Faster translation
 
+---
+
 ## Release History
 Later ...
+
+---
 
 ## Author
 **Vadim Hermann**
@@ -140,6 +167,7 @@ Later ...
 - [Twitter](https://twitter.com/vadimhermann)
 - [Codepen](http://codepen.io/Vaddo)
 
+---
 
 ## License
 The MIT License (MIT)
