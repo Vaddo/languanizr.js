@@ -6,12 +6,14 @@
 ## How to use
 Languanizr.js can be included easily in your webpage in three steps:
 
+
 **1)** Include **languanizr.js** or the minified version in your page.
 
 For example: 
 ```html
 <script src="./js/languanizr.min.js"></script>
 ````
+
 
 **2)** Add the attribute `data-languanize` and a placeholder **{$#1#$}** to your HTML markup.
 
@@ -22,24 +24,25 @@ For example:
 or
 ```html
 <ul>
-  <li>{$#1#$}</li>
-  <li>{$#2#$}</li>
-  <li>{$#3#$}</li>
+  <li data-languanize>{$#1#$}</li>
+  <li data-languanize>{$#2#$}</li>
+  <li data-languanize>{$#3#$}</li>
 </ul>
 ````
 or
 ```html
-<a href="#" title="{$#1#$}">{$#1#$}, {$#2#$}</a>
+<a data-languanize href="#" title="{$#1#$}">{$#1#$}, {$#2#$}</a>
 ````
 
-**Hint**: You can use a placeholder for a text more than once.
+**Hint**: You can use a placeholder more than once.
 
 Optionally you can insert a fallback text into your placeholder. If no translation text found it will be loaded.
 
 For example: 
 ```html
-<span data-languanize>**{$#1:Hello World#$}**</span>
+<span data-languanize>{$#1:Hello World#$}</span>
 ````
+
 
 **3)** Init the languanizr and load a language package.
 
@@ -49,7 +52,7 @@ languanizr.loadLanguage("http://your-website/languages/english.json");
 ````
 
 **Hint**: You can set some options before loading a language pack. Look at the API **Options** section further down.
-
+---
 
 
 ## API
@@ -73,7 +76,7 @@ languanizr.setOptions({permanent:true});
             language reload in the localstorage.
 
 - `attrScan`: Define here what attributes should be searching for placeholders. 
-              By Default the script searching the html text and the attributes `["alt", "value", "title"]` for placeholders.
+              By default the script searching the HTML text and the attributes `["alt", "value", "title"]` for placeholders.
 
 
 ## Roadmap
@@ -81,7 +84,7 @@ languanizr.setOptions({permanent:true});
 - Faster translation
 
 ## Release History
----
+Comming soon ...
 
 ## Author
 **Vadim Hermann**
