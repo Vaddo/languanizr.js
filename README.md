@@ -1,2 +1,1 @@
-languanizr
-==========
+# languanizr.js
