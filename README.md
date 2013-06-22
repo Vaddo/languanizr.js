@@ -3,6 +3,11 @@
 > Create multi language sites fast and simple.
 
 
+## How it works
+
+---
+
+
 ## How to use
 Languanizr.js can be included easily in your webpage in three steps:
 
@@ -58,14 +63,24 @@ languanizr.loadLanguage("http://your-website/languages/english.json");
 
 ## API
 
+###languanizr.setOptions({});
 
-### Options
-You can set following options like this:
+Set languanizr options.
 
-For example: 
+**Hint**: Always set the options first
+
+**Available since**: v0.1.0
+
+**Returns:**
+ - languanizr object.
+
+**Example:**
 ```javascript
 languanizr.setOptions({permanent:true});
 ````
+
+**Options**
+You can set following options:
 
 - `auto`: If you want a automatic translation every time if the dom changes, `true` or `false`. Default is `true`.
 - `permanent`: If you want to store your active language permanent on the client. 
@@ -79,13 +94,46 @@ languanizr.setOptions({permanent:true});
 - `attrScan`: Define here what attributes should be searching for placeholders. 
               By default the script searching the HTML text and the attributes `["alt", "value", "title"]` for placeholders.
 
+---
+
+###languanizr.loadLanguage()
+
+Loading a language package.
+
+**Available since**: v0.1.0
+
+**Returns:**
+ - languanizr object.
+
+**Example:**
+```javascript
+languanizr.loadLanguage("http://your-website/languages/english.json");
+````
+
+---
+
+###languanizr.reloadLanguage()
+
+Clear the storage and load the given language package.
+
+**Available since**: v0.1.0
+
+**Returns:**
+ - languanizr object.
+
+**Example:**
+```javascript
+languanizr.reloadLanguage("http://your-website/languages/english.json");
+````
+
+---
 
 ## Roadmap
 - Automatic language selector
 - Faster translation
 
 ## Release History
-Comming soon ...
+Later ...
 
 ## Author
 **Vadim Hermann**
