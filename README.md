@@ -68,10 +68,12 @@ languanizr.loadLanguage("http://your-website/languages/english.json");
 Set languanizr options.
 
 **Hint**: Always set the options first
+
 **Available since**: v0.1.0
+
 **Returns**: languanizr object.
 
-**For Example:**
+For Example:
 ```javascript
 languanizr.setOptions({permanent:true});
 ````
@@ -98,9 +100,10 @@ You can set following options:
 Loading a language package.
 
 **Available since**: v0.1.0
+
 **Returns**: languanizr object.
 
-**For Example:**
+For Example:
 ```javascript
 languanizr.loadLanguage("http://your-website/languages/english.json");
 ````
@@ -112,9 +115,10 @@ languanizr.loadLanguage("http://your-website/languages/english.json");
 Clear the storage and load the given language package.
 
 **Available since**: v0.1.0
+
 **Returns**: languanizr object.
 
-**For Example:**
+For Example:
 ```javascript
 languanizr.reloadLanguage("http://your-website/languages/english.json");
 ````
