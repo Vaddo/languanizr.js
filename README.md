@@ -52,6 +52,7 @@ languanizr.loadLanguage("http://your-website/languages/english.json");
 ````
 
 **Hint**: You can set some options before loading a language pack. Look at the API **Options** section further down.
+
 ---
 
 
