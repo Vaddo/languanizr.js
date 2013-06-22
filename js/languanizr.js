@@ -40,6 +40,47 @@ var languanizr = {
     setTimeout(function(){window.location.reload();}, 100);
     return this;
   },
+  doTranslate: function(){
+    var allElements = $("[data-languanize]");
+    var length      = allElements.length;
+    var attrLength  = languanizr._options.attrScan.length;
+    var storage     = languanizr._getStorage();
+    var curElement, eIndex, aIndex, text, curText, attr, tag;
+
+    for (eIndex = 0; eIndex < length; ++eIndex){
+      curElement = $(allElements[eIndex]);
+      tag = curElement[0].tagName;
+
+      // attributes
+      for(aIndex = 0; aIndex < attrLength; ++aIndex){
+
+        attr = languanizr._options.attrScan[aIndex];
+        text = curElement.attr(attr);
+
+        if(typeof text !== 'undefined' && text !== false){
+          text = languanizr._replacePlaceholder(text, storage);
+          curElement.attr(attr, text);
+        }
+      }
+
+      // inputs, textareas etc.
+      if((tag == "INPUT") || (tag == "TEXTAREA")){
+        text = curElement.val();
+        text = languanizr._replacePlaceholder(text, storage);
+        curElement.val(text);
+      }
+
+      text = curElement.html();
+      text = languanizr._replacePlaceholder(text, storage);
+      curElement.html(text);
+    };
+
+    if(languanizr._options.auto){
+      languanizr._bindListener();
+    }
+
+    return this;
+  },
 
 
 
@@ -56,7 +97,7 @@ var languanizr = {
        .done(function(loadedPack){
           if(languanizr._validateLanguagePack(loadedPack)){
             languanizr._checkAndStore(loadedPack);
-            languanizr._doTranslate();
+            languanizr.doTranslate();
           }
        })
        .fail(function(){alert("languanizr.js - Loading language failed!");});
@@ -118,46 +159,7 @@ var languanizr = {
       }
     }
   },
-  _doTranslate: function(){
-    var allElements = $("[data-languanize]");
-    var length      = allElements.length;
-    var attrLength  = languanizr._options.attrScan.length;
-    var storage     = languanizr._getStorage();
-    var curElement, eIndex, aIndex, text, curText, attr, tag;
-
-    for (eIndex = 0; eIndex < length; ++eIndex){
-      curElement = $(allElements[eIndex]);
-      tag = curElement[0].tagName;
-
-      // attributes
-      for(aIndex = 0; aIndex < attrLength; ++aIndex){
-
-        attr = languanizr._options.attrScan[aIndex];
-        text = curElement.attr(attr);
-
-        if(typeof text !== 'undefined' && text !== false){
-          text = languanizr._replacePlaceholder(text, storage);
-          curElement.attr(attr, text);
-        }
-      }
-
-      // inputs, textareas etc.
-      if((tag == "INPUT") || (tag == "TEXTAREA")){
-        text = curElement.val();
-        text = languanizr._replacePlaceholder(text, storage);
-        curElement.val(text);
-      }
-
-      text = curElement.html();
-      text = languanizr._replacePlaceholder(text, storage);
-      curElement.html(text);
-    };
-
-    if(languanizr._options.auto){
-      languanizr._bindListener();
-    }
-  },
   _bindListener: function(){
-    $("html").one("DOMSubtreeModified", languanizr._doTranslate);
+    $("html").one("DOMSubtreeModified", languanizr.doTranslate);
   }
 }
