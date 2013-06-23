@@ -14,7 +14,7 @@
 
 
 ## How to use
-Languanizr.js can be included easily in your webpage in three steps:
+Languanizr.js can be included easily in your webpage in four steps:
 
 
 **1)** Include **languanizr.js** or the minified version in your page.
@@ -24,8 +24,15 @@ For example:
 <script src="./js/languanizr.min.js"></script>
 ````
 
+**2)** Create your own language package.
 
-**2)** Add the attribute `data-languanize` and a placeholder **{$#1#$}** to your HTML markup.
+For example: 
+```JSON
+
+````
+
+
+**3)** Add the attribute `data-languanize` and a placeholder **{$#1#$}** to your HTML markup.
 
 For example: 
 ```html
@@ -54,7 +61,7 @@ For example:
 ````
 
 
-**3)** Init the languanizr and load a language package.
+**4)** Init the languanizr and load a language package.
 
 For example: 
 ```javascript
