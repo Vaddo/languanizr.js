@@ -188,13 +188,13 @@ For example:
   }
 ````
 - `title` and `url`: String - Not used in the script. They can be leave.
-- `package_version`: Number - Needed to ensure the language package compatibility in the editor and for the language update in the Localstorage.
+- `package_version`: Number - Needed to ensure the language package compatibility in the editor. Also needed to trigger a language update, if the package versions differ.
 - `language`: String - The name of the language. Needed to differ the languages at the loading process.
 - `text`: Object - The text. The id of a text part represent the placeholder id and need be unique.
 
 ### Errors:
-- "No language pack found!"   - No language package given
-- "Loading language failed!"  - The language request failed. Check the language target.
+- "No language pack found!"   - No language package given? Check the `loadLanguage` parameter.
+- "Loading language failed!"  - The language request failed. Check the language url in the `loadLanguage` function.
 - "Invalid language package!" - The required language properties are not valid. Ensure the property type.
 
 ---
