@@ -28,9 +28,20 @@ For example:
 
 For example: 
 ```JSON
-
+  {
+    "title": "Languanizr language package",
+    "url": "http://www.languanizrjs.com",
+    "package_version": 1,
+    "language": "english",
+    "text": {
+      "1": "Hello world",
+      "2": "this is",
+      "3": "languanizr.js"
+    }
+  }
 ````
-
+**Hint**: Use the online language editor to create fast and simple language packages or check out 
+the **editor branch** for more details.
 
 **3)** Add the attribute `data-languanize` and a placeholder **{$#1#$}** to your HTML markup.
 
@@ -159,6 +170,7 @@ languanizr.doTranslate();
 ## Roadmap
 - Automatic language selector
 - Faster translation
+- More examples
 
 ---
 
