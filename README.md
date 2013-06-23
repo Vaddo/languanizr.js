@@ -43,7 +43,7 @@ For example:
 **Hint**: Use the online language editor at http://www.languanizrjs.com to create fast and simple language packages or check out 
 the **editor branch** - https://github.com/Vaddo/languanizr.js/tree/editor - for more details about the editor.
 
-**Hint**: You can find more about the language package system further down.
+**Hint**: You can find more about the language package system further down in the Language Package section.
 
 **3)** Add the attribute `data-languanize` and a placeholder **{$#1#$}** to your HTML markup.
 
@@ -103,10 +103,11 @@ For Example:
 languanizr.setOptions({permanent:true});
 ````
 
-**Options**
+###Options
+
 You can set following options:
 
-- `auto`: If you want a automatic translation every time if the DOM changes, `true` or `false`. Default is `true`.
+- `auto`: Automatic translation every time if the DOM changes. Can be `true` or `false`. Default is `true`.
 
 **Hint**: If you set this option to `false` you need to trigger manualy the translation with the `doTranslate()` Method.
 
