@@ -41,7 +41,7 @@ For example:
   }
 ````
 **Hint**: Use the online language editor to create fast and simple language packages or check out 
-the **editor branch** - https://github.com/Vaddo/languanizr.js/tree/editor - for more details.
+the **editor branch** - https://github.com/Vaddo/languanizr.js/tree/editor - for more details about the editor.
 
 **Hint**: You can find more about the language package system further down.
 
@@ -108,14 +108,16 @@ You can set following options:
 
 - `auto`: If you want a automatic translation every time if the DOM changes, `true` or `false`. Default is `true`.
 
-**Hint**: - If you set this option to `false` you need to trigger manualy the translation with the `doTranslate()` Method.
-          - Also if you want IE8 support, because DOMSubtreeModified event support comes by IE9+
+**Hint**: If you set this option to `false` you need to trigger manualy the translation with the `doTranslate()` Method.
+
+**Hint**: Also if you want IE8 support, because DOMSubtreeModified event support comes by IE9+
 
 - `permanent`: If you want to store your active language permanent on the client. 
                If `true` the language package will be stored in the Localstorage otherwise in the Sessionstorage. Default is `false`.
 
-**Hint**: - You can boost your translation speed by setting this option to `true`
-          - If this option is `true` keep in mind that **only** other language packs 
+**Hint**: You can boost your translation speed by setting this option to `true`
+
+**Hint**: If this option is `true` keep in mind that **only** other language packs 
             or the same language pack with different version can trigger a 
             language reload in the localstorage.
 
@@ -171,6 +173,20 @@ languanizr.doTranslate();
 
 ## Language Package
 
+For example: 
+```JSON
+  {
+    "title": "Languanizr language package", // Optional
+    "url": "http://www.languanizrjs.com",   // Optional
+    "package_version": 1,                   // Required
+    "language": "english",                  // Required
+    "text": {                               // Required
+      "1": "Hello world",
+      "2": "this is",
+      "3": "languanizr.js"
+    }
+  }
+````
 
 ---
 
