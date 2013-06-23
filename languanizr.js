@@ -108,7 +108,7 @@ var languanizr = {
   },
   _validateLanguagePack: function(loadedPack){
     if(languanizr._isNumber(loadedPack.package_version) && 
-      loadedPack.words && 
+      loadedPack.text && 
       languanizr._isString(loadedPack.language)){
 
       return true;
@@ -150,11 +150,11 @@ var languanizr = {
   },
   _store: function(loadedPack, storage){
     storage.clear();
-    for(id in loadedPack.words){
-      if(loadedPack.words.hasOwnProperty(id)){
+    for(id in loadedPack.text){
+      if(loadedPack.text.hasOwnProperty(id)){
 
         // store the language
-        storage.setItem(id, loadedPack.words[id])
+        storage.setItem(id, loadedPack.text[id])
         // set some meta data
         storage.setItem("package_version", loadedPack.package_version);
         storage.setItem("language", loadedPack.language);
