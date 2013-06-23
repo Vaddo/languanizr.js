@@ -41,7 +41,9 @@ For example:
   }
 ````
 **Hint**: Use the online language editor to create fast and simple language packages or check out 
-the **editor branch** for more details.
+the **editor branch** - https://github.com/Vaddo/languanizr.js/tree/editor - for more details.
+
+**Hint**: You can find more about the language package system further down.
 
 **3)** Add the attribute `data-languanize` and a placeholder **{$#1#$}** to your HTML markup.
 
@@ -164,6 +166,11 @@ For Example:
 ```javascript
 languanizr.doTranslate();
 ````
+
+---
+
+## Language Package
+
 
 ---
 
