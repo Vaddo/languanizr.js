@@ -4,8 +4,10 @@
 
 
 ## How it works
-**1)** The script loading the language package and store it in the browser for fast access
+**1)** The script loading the language package and store it in the browser
+
 **2)** The DOMSubtreeModified event triggers the placeholder replacement
+
 **3)** All placeholder inside elements with the `data-languanize` attribute will be replaced by the specified text
 
 ---
