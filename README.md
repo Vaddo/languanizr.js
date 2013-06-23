@@ -176,17 +176,26 @@ languanizr.doTranslate();
 For example: 
 ```JSON
   {
-    "title": "Languanizr language package", // Optional
-    "url": "http://www.languanizrjs.com",   // Optional
-    "package_version": 1,                   // Required
-    "language": "english",                  // Required
-    "text": {                               // Required
+    "title": "Languanizr language package", Optional
+    "url": "http://www.languanizrjs.com",   Optional
+    "package_version": 1,                   Required
+    "language": "english",                  Required
+    "text": {                               Required
       "1": "Hello world",
       "2": "this is",
       "3": "languanizr.js"
     }
   }
 ````
+- `title` and `url`: String - Not used in the script. They can be leave.
+- `package_version`: Number - Needed to ensure the language package compatibility in the editor and for the language update in the Localstorage.
+- `language`: String - The name of the language. Needed to differ the languages at the loading process.
+- `text`: Object - The text. The id of a text part represent the placeholder id and need be unique.
+
+### Errors:
+- "No language pack found!"   - No language package given
+- "Loading language failed!"  - The language request failed. Check the language target.
+- "Invalid language package!" - The required language properties are not valid. Ensure the property type.
 
 ---
 
@@ -194,6 +203,7 @@ For example:
 - Automatic language selector
 - Faster translation
 - More examples
+- More code comments
 
 ---
 
