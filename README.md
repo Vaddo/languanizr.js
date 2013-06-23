@@ -40,7 +40,7 @@ For example:
     }
   }
 ````
-**Hint**: Use the online language editor to create fast and simple language packages or check out 
+**Hint**: Use the online language editor at http://www.languanizrjs.com to create fast and simple language packages or check out 
 the **editor branch** - https://github.com/Vaddo/languanizr.js/tree/editor - for more details about the editor.
 
 **Hint**: You can find more about the language package system further down.
