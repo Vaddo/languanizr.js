@@ -103,20 +103,20 @@ For Example:
 languanizr.setOptions({permanent:true});
 ````
 
-###Options
+####Options
 
 You can set following options:
 
 - `auto`: Automatic translation every time if the DOM changes. Can be `true` or `false`. Default is `true`.
 
-**Hint**: If you set this option to `false` you need to trigger manualy the translation with the `doTranslate()` Method.
+**Hint**: If you set this option to `false` you need to trigger manualy the translation with the `doTranslate()` function.
 
-**Hint**: Also if you want IE8 support, because DOMSubtreeModified event support comes by IE9+
+**Hint**: Also if you want IE8 support, because DOMSubtreeModified event support comes by IE9+.
 
 - `permanent`: If you want to store your active language permanent on the client. 
                If `true` the language package will be stored in the Localstorage otherwise in the Sessionstorage. Default is `false`.
 
-**Hint**: You can boost your translation speed by setting this option to `true`
+**Hint**: You can boost your translation speed by setting this option to `true`.
 
 **Hint**: If this option is `true` keep in mind that **only** other language packs 
             or the same language pack with different version can trigger a 
@@ -191,7 +191,7 @@ For example:
 - `title` and `url`: String - Not used in the script. They can be leave.
 - `package_version`: Number - Needed to ensure the language package compatibility in the editor. Also needed to trigger a language update, if the package versions differ.
 - `language`: String - The name of the language. Needed to differ the languages at the loading process.
-- `text`: Object - The text. The id of a text part represent the placeholder id and need be unique.
+- `text`: Object - The id of a text part. It represents the placeholders id and must be unique in the language package.
 
 ### Errors:
 - "No language pack found!"   - No language package given? Check the `loadLanguage` parameter.
