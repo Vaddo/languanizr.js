@@ -10,17 +10,12 @@ version are comming soon... Check out the roadmap and issues for more details**
 ---
 
 ## Roadmap
-- Load a existing language package
 - Standalone version
 - Better documentation
+- Load a existing language package
 - More examples
 - More code comments
 - Better browser support
-
----
-
-## Release History
-Later ...
 
 ---
 
