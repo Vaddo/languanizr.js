@@ -26,6 +26,8 @@ For example:
 
 **2)** Create your own language package.
 
+> **HINT**: You can find more about the language package system further down in the Language Package section.
+
 For example: 
 ```JSON
   {
@@ -40,9 +42,10 @@ For example:
     }
   }
 ````
-> **HINT**: You can find more about the language package system further down in the Language Package section.
 
 **3)** Add the attribute `data-languanize` and a placeholder **{$#1#$}** to your HTML markup.
+
+> **HINT**: You can use a placeholder more than once.
 
 For example: 
 ```html
@@ -61,7 +64,6 @@ or
 <a data-languanize href="#" title="{$#1#$}">{$#1#$}, {$#2#$}</a>
 ````
 
-> **HINT**: You can use a placeholder more than once.
 
 Optionally you can insert a fallback text into your placeholder. If no translation text found it will be loaded.
 
@@ -73,12 +75,12 @@ For example:
 
 **4)** Init the languanizr and load a language package.
 
+> **HINT**: You can set some options before loading a language pack. Look at the API **Options** section further down.
+
 For example: 
 ```javascript
 languanizr.loadLanguage("http://your-website/languages/english.json");
 ````
-
-> **HINT**: You can set some options before loading a language pack. Look at the API **Options** section further down.
 
 ---
 
