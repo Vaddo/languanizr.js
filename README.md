@@ -14,7 +14,7 @@
 
 
 ## How to use
-Languanizr.js can be included easily in your webpage in four steps:
+> Languanizr.js can be included easily in your webpage in four steps
 
 
 **1)** Include **languanizr.js** or the minified version in your page.
@@ -40,7 +40,7 @@ For example:
     }
   }
 ````
-**Hint**: You can find more about the language package system further down in the Language Package section.
+> **HINT**: You can find more about the language package system further down in the Language Package section.
 
 **3)** Add the attribute `data-languanize` and a placeholder **{$#1#$}** to your HTML markup.
 
@@ -61,7 +61,7 @@ or
 <a data-languanize href="#" title="{$#1#$}">{$#1#$}, {$#2#$}</a>
 ````
 
-**Hint**: You can use a placeholder more than once.
+> **HINT**: You can use a placeholder more than once.
 
 Optionally you can insert a fallback text into your placeholder. If no translation text found it will be loaded.
 
@@ -78,7 +78,7 @@ For example:
 languanizr.loadLanguage("http://your-website/languages/english.json");
 ````
 
-**Hint**: You can set some options before loading a language pack. Look at the API **Options** section further down.
+> **HINT**: You can set some options before loading a language pack. Look at the API **Options** section further down.
 
 ---
 
@@ -87,9 +87,9 @@ languanizr.loadLanguage("http://your-website/languages/english.json");
 
 ###languanizr.setOptions(array);
 
-Set languanizr options.
+> Set languanizr options.
 
-**Hint**: Always set the options first
+> **HINT**: Always set the options first
 
 **Available since**: v0.1.0
 
@@ -106,16 +106,16 @@ You can set following options:
 
 - `auto`: Automatic translation every time if the DOM changes. Can be `true` or `false`. Default is `true`.
 
-**Hint**: If you set this option to `false` you need to trigger manualy the translation with the `doTranslate()` function.
+> **HINT**: If you set this option to `false` you need to trigger manualy the translation with the `doTranslate()` function.
 
-**Hint**: Also if you want IE8 support, because DOMSubtreeModified event support comes by IE9+.
+> **HINT**: Also if you want IE8 support, because DOMSubtreeModified event support comes by IE9+.
 
 - `permanent`: If you want to store your active language permanent on the client. 
                If `true` the language package will be stored in the Localstorage otherwise in the Sessionstorage. Default is `false`.
 
-**Hint**: You can boost your translation speed by setting this option to `true`.
+> **HINT**: You can boost your translation speed by setting this option to `true`.
 
-**Hint**: If this option is `true` keep in mind that **only** other language packs 
+> **HINT**: If this option is `true` keep in mind that **only** other language packs 
             or the same language pack with different version can trigger a 
             language reload in the localstorage.
 
@@ -126,7 +126,7 @@ You can set following options:
 
 ###languanizr.loadLanguage(string)
 
-Loading a language package.
+> Loading a language package.
 
 **Available since**: v0.1.0
 
@@ -141,7 +141,7 @@ languanizr.loadLanguage("http://your-website/languages/english.json");
 
 ###languanizr.reloadLanguage(string)
 
-Clear the storage and load the given language package.
+> Clear the storage and load the given language package.
 
 **Available since**: v0.1.0
 
@@ -156,7 +156,7 @@ languanizr.reloadLanguage("http://your-website/languages/english.json");
 
 ###languanizr.doTranslate()
 
-Trigger the translation/placeholder replacement.
+> Trigger the translation/placeholder replacement.
 
 **Available since**: v0.1.0
 
@@ -170,7 +170,7 @@ languanizr.doTranslate();
 ---
 
 ## Language Package
-**Hint**: Use the online language editor at http://www.languanizrjs.com to create fast and simple language packages or check out 
+> **HINT**: Use the online language editor at http://www.languanizrjs.com to create fast and simple language packages or check out 
 the **editor branch** - https://github.com/Vaddo/languanizr.js/tree/editor - for more details about the editor.
 
 For example: 
