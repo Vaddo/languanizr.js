@@ -19,7 +19,7 @@
 
 **1)** Include **languanizr.js** or the minified version in your page.
 
-For example: 
+*Example* 
 ```html
 <script src="./js/languanizr.min.js"></script>
 ````
@@ -28,7 +28,7 @@ For example:
 
 > **HINT**: You can find more about the language package system further down in the Language Package section.
 
-For example: 
+*Example* 
 ```JSON
   {
     "title": "Languanizr language package",
@@ -47,7 +47,7 @@ For example:
 
 > **HINT**: You can use a placeholder more than once.
 
-For example: 
+*Example* 
 ```html
 <span data-languanize>{$#1#$}</span>
 ````
@@ -67,7 +67,7 @@ or
 
 Optionally you can insert a fallback text into your placeholder. If no translation text found it will be loaded.
 
-For example: 
+*Example* 
 ```html
 <span data-languanize>{$#1:Hello World#$}</span>
 ````
@@ -77,7 +77,7 @@ For example:
 
 > **HINT**: You can set some options before loading a language pack. Look at the API **Options** section further down.
 
-For example: 
+*Example* 
 ```javascript
 languanizr.loadLanguage("http://your-website/languages/english.json");
 ````
@@ -97,7 +97,7 @@ languanizr.loadLanguage("http://your-website/languages/english.json");
 
 **Returns**: languanizr object.
 
-For Example:
+*Example*
 ```javascript
 languanizr.setOptions({permanent:true});
 ````
@@ -134,7 +134,7 @@ You can set following options:
 
 **Returns**: languanizr object.
 
-For Example:
+*Example*
 ```javascript
 languanizr.loadLanguage("http://your-website/languages/english.json");
 ````
@@ -149,7 +149,7 @@ languanizr.loadLanguage("http://your-website/languages/english.json");
 
 **Returns**: languanizr object.
 
-For Example:
+*Example*
 ```javascript
 languanizr.reloadLanguage("http://your-website/languages/english.json");
 ````
@@ -164,7 +164,7 @@ languanizr.reloadLanguage("http://your-website/languages/english.json");
 
 **Returns**: languanizr object.
 
-For Example:
+*Example*
 ```javascript
 languanizr.doTranslate();
 ````
@@ -175,7 +175,7 @@ languanizr.doTranslate();
 > **HINT**: Use the online language editor at http://www.languanizrjs.com to create fast and simple language packages or check out 
 the **editor branch** - https://github.com/Vaddo/languanizr.js/tree/editor - for more details about the editor.
 
-For example: 
+*Example* 
 ```JSON
   {
     "title": "Languanizr language package", Optional
