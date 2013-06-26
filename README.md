@@ -106,6 +106,8 @@ languanizr.setOptions({permanent:true});
 
 You can set following options:
 
+**Available since**: v0.1.0
+
 - `auto`: Automatic translation every time if the DOM changes. Can be `true` or `false`. Default is `true`.
 
 > **HINT**: If you set this option to `false` you need to trigger manualy the translation with the `doTranslate()` function.
@@ -123,6 +125,13 @@ You can set following options:
 
 - `attrScan`: Define here what attributes should be searching for placeholders. 
               By default the script searching the HTML text and the attributes `["alt", "value", "title"]` for placeholders.
+
+- `removeSelectors`: If you want to remove the `data-languanize` attribute after the translating, set this property to `true`. 
+                     Default is `false`.
+
+> **HINT**: For better performance set this property to `true`, because every time the DOM changes, 
+            the script iterate through all `data-langunize` attributes to check the text.
+            If you needed max translation support for dynamic content, set it to `false`.
 
 ---
 
