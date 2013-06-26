@@ -20,7 +20,8 @@ var languanizr = {
   _defaultOptions: {
     auto: true,
     permanent: false,
-    attrScan: ["alt", "value", "title"]
+    attrScan: ["alt", "value", "title"],
+    removeSelectors: false
   },
   _options: {},
 
@@ -73,9 +74,15 @@ var languanizr = {
         curElement.val(text);
       }
 
-      text = curElement.html();
-      text = languanizr._replacePlaceholder(text, storage);
-      curElement.html(text);
+      if(curElement.children().length == 0){
+        text = curElement.html();
+        text = languanizr._replacePlaceholder(text, storage);
+        curElement.html(text);
+      }
+
+      if(languanizr._options.removeSelectors){
+        curElement.removeAttr("data-languanize");
+      }
     };
 
     if(languanizr._options.auto){
