@@ -1,6 +1,10 @@
 /**
- * Languanizr.js is smart client side translation script
- * for creating fast and simple multi language sites.
+ * Languanizr.js v0.1.0
+ *
+ * Client side translation script
+ * -
+ * Create multi language sites fast and simple.
+ *
  *
  * Http://www.languanizrjs.com
  * https://github.com/Vaddo/languanizr.js/tree/master
@@ -16,10 +20,10 @@ var languanizr = {
   _defaultOptions: {
     auto: true,
     permanent: false,
-    attrScan: ["alt", "value", "title"]
+    attrScan: ["alt", "value", "title"],
+    removeSelectors: false
   },
   _options: {},
-//xxxvh setAttrScan ?
 
 
   // -------------------------------------------------------------------------------
@@ -70,9 +74,15 @@ var languanizr = {
         curElement.val(text);
       }
 
-      text = curElement.html();
-      text = languanizr._replacePlaceholder(text, storage);
-      curElement.html(text);
+      if(curElement.children().length == 0){
+        text = curElement.html();
+        text = languanizr._replacePlaceholder(text, storage);
+        curElement.html(text);
+      }
+
+      if(languanizr._options.removeSelectors){
+        curElement.removeAttr("data-languanize");
+      }
     };
 
     if(languanizr._options.auto){
@@ -105,7 +115,7 @@ var languanizr = {
   },
   _validateLanguagePack: function(loadedPack){
     if(languanizr._isNumber(loadedPack.package_version) && 
-      loadedPack.words && 
+      loadedPack.text && 
       languanizr._isString(loadedPack.language)){
 
       return true;
@@ -147,11 +157,11 @@ var languanizr = {
   },
   _store: function(loadedPack, storage){
     storage.clear();
-    for(id in loadedPack.words){
-      if(loadedPack.words.hasOwnProperty(id)){
+    for(id in loadedPack.text){
+      if(loadedPack.text.hasOwnProperty(id)){
 
         // store the language
-        storage.setItem(id, loadedPack.words[id])
+        storage.setItem(id, loadedPack.text[id])
         // set some meta data
         storage.setItem("package_version", loadedPack.package_version);
         storage.setItem("language", loadedPack.language);
