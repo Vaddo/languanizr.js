@@ -5,7 +5,7 @@
     "language": "english",
     "text": {
         "1": "Client side translation script",
-        "2": "Deutsch",
+        "2": "German",
         "3": "English",
         "4": "Package version:",
         "5": "Create multi language sites fast and simple.",
@@ -33,11 +33,11 @@
         "27": "or",
         "28": "Home",
         "29": "Back",
-        "30": "Ok. If you want to create some language packages, open the language editor like this.",
+        "30": "Then you need a language package, which you can create with the editor",
         "31": "Editor",
-        "32": "Jop.. very simple and very fast ;) I show you but first ...",
-        "33": "... some pros.",
-        "34": "To boost your creation you *can* eehm sorry you must use these short keys. XD",
+        "32": "Jop.. very simple and very fast. ;)",
+        "33": "Some pros.",
+        "34": "Use these cool short keys to boost your workflow.",
         "35": "Cell navigation",
         "36": "Next cell in column / New row",
         "37": "Return to editor",
@@ -49,9 +49,11 @@
         "43": "Delete row",
         "44": "Copy placeholder",
         "45": "Create package",
-        "46": "Create easy your own language packages. After that load them with the languanizr.js for the super awesome translation power.",
-        "47": "Use this short key to generate a language package for the selected language.",
+        "46": "To do this, type your language name and some text here.",
+        "47": "If you've done, use this short key to generate a language package for the selected language.",
         "48": "Hint: Create a JSON file and paste the text below into the new file, to create a language file.",
-        "49": "Check out the full documentation and examples on Github."
+        "49": "Check out the full documentation and examples on Github.",
+        "50": "Ok. First include the script into your page.",
+        "51": "Ok. Back to content. After you triggered the language creation you get the language JSON. Use it as language package and load it with the languanizr.js."
     }
 }

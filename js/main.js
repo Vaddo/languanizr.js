@@ -33,8 +33,14 @@ $(function(){
     introJs().onbeforechange(function(targetElement) {
       var cur = $(".introjs-helperNumberLayer").text();
 
-      if(cur == 3){
+      if(cur == 4){
         $("#editor").click();
+      }
+      if(cur == 8){
+        var e = jQuery.Event("keydown");
+        e.ctrlKey = true;
+        e.keyCode = 69
+        $("thead .langCol:first").focus().trigger(e);
       }
     }).start();
   });

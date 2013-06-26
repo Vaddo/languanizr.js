@@ -2337,3 +2337,11 @@ code {
   width: 100%;
   border: solid 1px #e2e2e2;
 }
+
+.introjs-helperLayer {
+  padding: 20px;
+}
+
+.introjs-helperNumberLayer {
+  line-height: 12px !important;
+}
