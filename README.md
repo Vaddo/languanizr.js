@@ -95,7 +95,9 @@ languanizr.loadLanguage("http://your-website/languages/english.json");
 
 **Available since**: v0.1.0
 
-**Returns**: languanizr object.
+**Parameters**: Options
+
+**Returns**: Languanizr object.
 
 *Example*
 ```javascript
@@ -141,7 +143,9 @@ You can set following options:
 
 **Available since**: v0.1.0
 
-**Returns**: languanizr object.
+**Parameters**: Language file as json
+
+**Returns**: Languanizr object.
 
 *Example*
 ```javascript
@@ -156,7 +160,9 @@ languanizr.loadLanguage("http://your-website/languages/english.json");
 
 **Available since**: v0.1.0
 
-**Returns**: languanizr object.
+**Parameters**: Language file as json
+
+**Returns**: Languanizr object.
 
 *Example*
 ```javascript
@@ -171,7 +177,7 @@ languanizr.reloadLanguage("http://your-website/languages/english.json");
 
 **Available since**: v0.1.0
 
-**Returns**: languanizr object.
+**Returns**: Languanizr object.
 
 *Example*
 ```javascript
