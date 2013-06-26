@@ -1,7 +1,7 @@
 {
     "title": "Languanizr language package",
     "url": "http://www.languanizrjs.com",
-    "package_version": 2,
+    "package_version": 1,
     "language": "english",
     "text": {
         "1": "Client side translation script",
@@ -49,6 +49,9 @@
         "43": "Delete row",
         "44": "Copy placeholder",
         "45": "Create package",
-        "46": "With the editor you are able to create easy your own language packages. After that you can load them with the languanizr.js for the super awesome translation."
+        "46": "Create easy your own language packages. After that load them with the languanizr.js for the super awesome translation power.",
+        "47": "Use this short key to generate a language package for the selected language.",
+        "48": "Hint: Create a JSON file and paste the text below into the new file, to create a language file.",
+        "49": "Check out the full documentation and examples on Github."
     }
 }

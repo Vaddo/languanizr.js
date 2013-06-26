@@ -29,7 +29,6 @@ $(function(){
     return false;
   });
 
-
   $("#tour").bind("click", function(){
     introJs().onbeforechange(function(targetElement) {
       var cur = $(".introjs-helperNumberLayer").text();
@@ -38,5 +37,9 @@ $(function(){
         $("#editor").click();
       }
     }).start();
+  });
+
+  $("#backEditor").bind("click", function(){
+    $("#editor").click();
   });
 });

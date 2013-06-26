@@ -2247,7 +2247,7 @@ code {
 .description {
   display: inline-block;
   margin: 0 20px 20px 5px;
-  color: #5e5e5e;
+  color: #919191;
 }
 
 .leftKeyBox, .middleKeyBox, .rightKeyBox {
@@ -2266,8 +2266,10 @@ code {
   width: 200px;
 }
 
-.nextPackageVersion {
+.version {
   font-size: 12px;
+  color: #919191;
+  font-style: italic;
   position: absolute;
   top: -50px;
   right: 0;
@@ -2331,10 +2333,7 @@ code {
   padding: 10px;
   font-size: 14px;
   color: #969696;
-  height: 500px;
+  height: 300px;
+  width: 100%;
   border: solid 1px #e2e2e2;
-  position: absolute;
-  top: 0px;
-  right: 0;
-  left: 0;
 }

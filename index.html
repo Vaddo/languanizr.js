@@ -20,12 +20,10 @@
           <a data-languanize id="german" class="button" href="#">{$#2#$}</a>
           <a data-languanize id="english" class="button" href="#">{$#3#$}</a>
           <span>-</span>
-          <a class="button" target="_blank" href="https://github.com/Vaddo/languanizr.js/tree/master">Github</a>
+          <a data-languanize data-step="8" data-intro="{$#49#$}" class="button" target="_blank" href="https://github.com/Vaddo/languanizr.js/tree/master">Github</a>
         </nav>
       </div>
       <hr>
-
-      <!-- XXXVH: After the translation the click event is broken, if the parent element has a data-languanize attribute too. -->
 
       <nav data-languanize id="nav" class="nav" data-step="4" data-intro="{$#30#$}">
         <a data-languanize id="home" class="button active" href="#">{$#28#$}</a>
@@ -76,12 +74,12 @@
           </div>
           <hr>
           <div class="foot">
-            <span data-languanize>&copy; 2013 - {$#22#$} <a href="http://www.vadim-hermann.com" target="_blank">Vadim Hermann</a></span>
-            <span class="right" data-languanize>{$#23#$} <a href="http://www.patternwall.net" target="_blank">Patternwall.net</a></span>
+            <span>&copy; 2013 - <span data-languanize>{$#22#$}</span> <a href="http://www.vadim-hermann.com" target="_blank">Vadim Hermann</a></span>
+            <span class="right"><span data-languanize>{$#23#$}</span> <a href="http://www.patternwall.net" target="_blank">Patternwall.net</a></span>
           </div>
         </div>
         <div class="editorContainer">
-          <span data-languanize class="nextPackageVersion">{$#4#$} <span id="nextPackageVersion">1</span></span>
+          <span class="version">v. 0.1.0</span>
           <div data-languanize class="shortKeysBox" data-step="6" data-intro="{$#34#$}">
             <div class="leftKeyBox">
               <code>←</code>, <code>↑</code>, <code>→</code>, <code>↓</code><span class="description" data-languanize>{$#35#$}</span><br>
@@ -98,7 +96,7 @@
             <div class="rightKeyBox">
               <code>CTRL + DEL</code><span class="description" data-languanize>{$#43#$}</span><br>
               <code>CTRL + C</code><span class="description" data-languanize>{$#44#$}</span><br>
-              <code>CTRL + E</code><span class="description" data-languanize>{$#45#$}</span>
+              <span data-languanize data-step="7" data-intro="{$#47#$}"><code>CTRL + E</code><span class="description" data-languanize>{$#45#$}</span></span>
             </div>
           </div>
           <div class="clear"></div>
@@ -119,9 +117,10 @@
           </table>
           <input id="languanizrEditorPlaceholder" class="languanizrEditorPlaceholder" type="text"/>
         </div>
-        <div class="jsonContainer">
+        <div data-languanize class="jsonContainer">
           <a data-languanize id="backEditor" class="button back" href="#">{$#29#$}</a>
-          <textarea id="field" cols="30" rows="10" class="field"></textarea>
+          <p data-languanize class="description">{$#48#$}</p>
+          <textarea id="field" class="field"></textarea>
         </div>
       </div>
     </div>

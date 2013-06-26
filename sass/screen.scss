@@ -223,15 +223,17 @@ $editorPrimaryColor:#e2e2e2;
 .description{
   display: inline-block;
   margin:0 $space $space 5px;
-  color:lighten($primaryColor, 10%);
+  color:lighten($primaryColor, 30%);
 }
 .leftKeyBox, .middleKeyBox, .rightKeyBox{float:left;}
 .leftKeyBox{width:230px;}
 .middleKeyBox{width:240px;}
 .rightKeyBox{width:200px;}
 
-.nextPackageVersion{
+.version{
   font-size:12px;
+  color:lighten($primaryColor, 30%);
+  font-style:italic;
   @include pos(-50px,0,'','');
 }
 .idCol{
@@ -291,8 +293,8 @@ $editorPrimaryColor:#e2e2e2;
     padding:10px;
     font-size: 14px;
     color:darken($editorPrimaryColor, 30%);
-    height:500px;
+    height:300px;
+    width:100%;
     border:solid 1px $editorPrimaryColor;
-    @include pos(0px, 0, '', 0);
   }
 }
