@@ -32,6 +32,11 @@ body{
 hr{
   border:none;
   border-bottom:solid 1px lighten($primaryColor, 67%);
+
+  &.alt{
+    margin-bottom:50px;
+    border-bottom:solid 30px lighten($primaryColor, 60%);
+  }
 }
 a{
   color: #2967a4;
@@ -100,7 +105,7 @@ code{
 .nav{@include pos(100px,'','',$space/2);}
 .nav2{@include pos(100px,$space/2,'','');}
 .someText{
-  margin-top:80px;
+  margin-top:50px;
   text-align: center;
 }
 .or{
@@ -124,30 +129,10 @@ code{
 
 .homeContainer, .editorContainer, .jsonContainer{@include transition(all 0.4s ease-in-out);}
 .homeContainer{position: relative;}
-.editorContainer, .jsonContainer{
-  width: 100%;
-  @include pos(0,'','','');
 
-  h4{
-    @include pos(-70px,0,'','');
-  }
-}
 .contentWrapper{
   position: relative;
   padding-bottom:100px;
-
-  &.home{
-    .editorContainer{right:-2000px;}
-    .jsonContainer{right:-2000px;}
-  }
-  &.editor{
-    .homeContainer{left:-2000px;}
-    .jsonContainer{right:-2000px;}
-  }
-  &.json{
-    .editorContainer{left:-2000px;}
-    .homeContainer{left:-2000px;}
-  }
 }
 
 // ------------------------------------------------------------- COMPONENTS
@@ -293,12 +278,13 @@ $editorPrimaryColor:#e2e2e2;
     padding:10px;
     font-size: 14px;
     color:darken($editorPrimaryColor, 30%);
-    height:300px;
+    height:120px;
     width:100%;
     border:solid 1px $editorPrimaryColor;
+    margin-bottom:$space;
   }
 }
 
 // introjs
-.introjs-helperLayer{padding:20px;}
+.introjs-helperLayer{padding:$space;}
 .introjs-helperNumberLayer{line-height:12px !important;}

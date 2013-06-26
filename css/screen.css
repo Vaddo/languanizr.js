@@ -32,7 +32,7 @@ a:active, a:hover {
 
 h1 {
   font-size: 2em;
-  margin: .67em 0;
+  margin: 0.67em 0;
 }
 
 abbr[title] {
@@ -101,7 +101,7 @@ svg:not(:root) {
 fieldset {
   border: 1px solid silver;
   margin: 0 2px;
-  padding: .35em .625em .75em;
+  padding: 0.35em 0.625em 0.75em;
 }
 
 button, input, select, textarea {
@@ -241,7 +241,7 @@ a [class^="icon-"], a [class*=" icon-"] {
 
 .icon-border {
   border: solid 1px #eeeeee;
-  padding: .2em .25em .15em;
+  padding: 0.2em 0.25em 0.15em;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
@@ -1970,6 +1970,10 @@ hr {
   border: none;
   border-bottom: solid 1px #efefef;
 }
+hr.alt {
+  margin-bottom: 50px;
+  border-bottom: solid 30px #dddddd;
+}
 
 a {
   color: #2967a4;
@@ -2080,7 +2084,7 @@ code {
 }
 
 .someText {
-  margin-top: 80px;
+  margin-top: 50px;
   text-align: center;
 }
 
@@ -2117,38 +2121,9 @@ code {
   position: relative;
 }
 
-.editorContainer, .jsonContainer {
-  width: 100%;
-  position: absolute;
-  top: 0;
-}
-.editorContainer h4, .jsonContainer h4 {
-  position: absolute;
-  top: -70px;
-  right: 0;
-}
-
 .contentWrapper {
   position: relative;
   padding-bottom: 100px;
-}
-.contentWrapper.home .editorContainer {
-  right: -2000px;
-}
-.contentWrapper.home .jsonContainer {
-  right: -2000px;
-}
-.contentWrapper.editor .homeContainer {
-  left: -2000px;
-}
-.contentWrapper.editor .jsonContainer {
-  right: -2000px;
-}
-.contentWrapper.json .editorContainer {
-  left: -2000px;
-}
-.contentWrapper.json .homeContainer {
-  left: -2000px;
 }
 
 .buttonBar {
@@ -2333,9 +2308,10 @@ code {
   padding: 10px;
   font-size: 14px;
   color: #969696;
-  height: 300px;
+  height: 120px;
   width: 100%;
   border: solid 1px #e2e2e2;
+  margin-bottom: 20px;
 }
 
 .introjs-helperLayer {

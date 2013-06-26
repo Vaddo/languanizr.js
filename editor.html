@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>languanizr.js</title>
+    <link rel="stylesheet" type="text/css" href="./css/screen.css">
+    <link rel="stylesheet" type="text/css" href="./css/introjs.min.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="Languanizr.js is a client side translation script. Create multi language sites fast and simple.">
+    <meta name="author" content="Vadim Hermann">
+    <meta name="viewport" content="width=device-width">
+  </head>
+  <body>
+    <div class="page" id="page">
+      <div class="head">
+        <div data-languanize data-step="1" data-intro="{$#7#$}">
+          <h3 data-languanize>languanizr.js</h3>
+          <h4 data-languanize>{$#1#$}</h4>
+        </div>
+        <nav class="topNav">
+          <a data-languanize id="german" class="button" href="#">{$#2#$}</a>
+          <a data-languanize id="english" class="button" href="#">{$#3#$}</a>
+          <span>-</span>
+          <a data-languanize data-step="9" data-intro="{$#49#$}" class="button" target="_blank" href="https://github.com/Vaddo/languanizr.js/tree/master">Github</a>
+        </nav>
+      </div>
+      <hr>
+
+      <nav id="nav" class="nav" data-step="4" data-intro="{$#30#$}">
+        <a data-languanize id="home" class="button" href="index.html">{$#28#$}</a>
+        <a data-languanize id="editor" class="button active" href="editor.html">{$#31#$}</a>
+      </nav>
+
+      <div data-languanize class="someText" data-step="2" data-intro="{$#32#$}">
+        <h1 data-languanize data-step="4" data-intro="{$#50#$}">languanizr editor</h1>
+        <h2 data-languanize >{$#5#$}</h2>
+      </div>
+        <div data-languanize class="jsonContainer" data-step="10" data-intro="{$#51#$}">
+          <p data-languanize class="description">{$#48#$}</p>
+          <textarea id="field" class="field"></textarea>
+        </div>
+        <hr>
+
+        <div class="editorContainer">
+          <span class="version">v. 0.1.0</span>
+          <div data-languanize class="shortKeysBox" data-step="7" data-intro="{$#34#$}">
+            <div class="leftKeyBox">
+              <code>←</code>, <code>↑</code>, <code>→</code>, <code>↓</code><span class="description" data-languanize>{$#35#$}</span><br>
+              <code>ENTER</code><span class="description" data-languanize>{$#36#$}</span><br>
+              <code>ESCAPE</code><span class="description" data-languanize>{$#37#$}</span><br>
+              <code>TAB</code><span class="description" data-languanize>{$#38#$}</span>
+            </div>
+            <div class="middleKeyBox">
+              <code>CTRL + POS</code><span class="description" data-languanize>{$#39#$}</span><br>
+              <code>CTRL + END</code><span class="description" data-languanize>{$#40#$}</span><br>
+              <code>CTRL + P</code><span class="description" data-languanize>{$#41#$}</span><br>
+              <code>CTRL + BACKSPACE</code><span class="description" data-languanize>{$#42#$}</span>
+            </div>
+            <div class="rightKeyBox">
+              <code>CTRL + DEL</code><span class="description" data-languanize>{$#43#$}</span><br>
+              <code>CTRL + C</code><span class="description" data-languanize>{$#44#$}</span><br>
+              <span data-languanize data-step="8" data-intro="{$#47#$}"><code>CTRL + E</code><span class="description" data-languanize>{$#45#$}</span></span>
+            </div>
+          </div>
+          <div class="clear"></div>
+
+          <table data-languanize id="languanizrEditor" data-latest-id="1" class="languanizrEditor" cellspacing="0" cellpadding="0" border="0" data-step="6" data-intro="{$#46#$}">
+            <thead>
+              <tr id="editorHead" class="editorHead">
+                <th id="idCol" class="idCol">#</th>
+                <th data-languanize class="col1 langCol" contenteditable="true">{$#24#$}</th>
+              </tr>
+            </thead>
+            <tbody id="editorBody" class="editorBody">
+              <tr>
+                <td class="idCol">1</td>
+                <td data-languanize class="col1 dataCol" contenteditable="true">{$#25#$}</td>
+              </tr>
+            </tbody>
+          </table>
+          <input id="languanizrEditorPlaceholder" class="languanizrEditorPlaceholder" type="text"/>
+        </div>
+        <hr>
+
+        <div class="foot">
+          <span>&copy; 2013 - <span data-languanize>{$#22#$}</span> <a href="http://www.vadim-hermann.com" target="_blank">Vadim Hermann</a></span>
+          <span class="right"><span data-languanize>{$#23#$}</span> <a href="http://www.patternwall.net" target="_blank">Patternwall.net</a></span>
+        </div>
+      </div>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="js/languanizrEditor.js"></script>
+    <script src="js/languanizr.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/vendor/intro.min.js"></script>
+  </body>
+</html>
