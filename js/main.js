@@ -1,7 +1,7 @@
 $(function(){
   languanizrEditor.init();
   languanizr.setOptions({permanent:true, attrScan: ["alt", "value", "title", "data-intro"]})
-            .loadLanguage("http://localhost/languanizr.js/js/english.json", function(){
+            .loadLanguage("http://www.languanizrjs.com/js/english.json", function(){
               if(RegExp('multipage', 'gi').test(window.location.search)) {
                 introJs().goToStep(5).start();
               }
@@ -11,11 +11,11 @@ $(function(){
   $("#" + id).addClass("active");
 
   $("#english").bind("click", function(){
-    languanizr.reloadLanguage("http://languanizrjs.com/js/english.json");
+    languanizr.reloadLanguage("http://www.languanizrjs.com/js/english.json");
     return false;
   });
   $("#german").bind("click", function(){
-    languanizr.reloadLanguage("http://languanizrjs.com/js/german.json");
+    languanizr.reloadLanguage("http://www.languanizrjs.com/js/german.json");
     return false;
   });
 
