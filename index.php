@@ -15,9 +15,11 @@
       <div class="buttonBar">
         <a id="tour" data-languanize class="fatButton tour" href="#">{$#5#$}</a>
         <span data-languanize class="or">{$#6#$}</span>
-        <a data-languanize href="#" class="fatButton download">{$#7#$}</a>
+        <a data-languanize href="#" class="fatButton download">{$#7#$}</a><br><br><br>
+        <a href="https://twitter.com/vadimhermann" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @vadimhermann</a>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.languanizrjs.com" data-via="vadimhermann">Tweet</a>
       </div>
-      
+
       <div class="content" data-step="3" data-languanize data-intro="{$#42#$}" data-position="top">
         <hr>
         <span class="icon-flag icon-2x"></span><h5 data-languanize>{$#8#$}</h5>

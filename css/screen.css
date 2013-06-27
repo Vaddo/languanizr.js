@@ -32,7 +32,7 @@ a:active, a:hover {
 
 h1 {
   font-size: 2em;
-  margin: .67em 0;
+  margin: 0.67em 0;
 }
 
 abbr[title] {
@@ -101,7 +101,7 @@ svg:not(:root) {
 fieldset {
   border: 1px solid silver;
   margin: 0 2px;
-  padding: .35em .625em .75em;
+  padding: 0.35em 0.625em 0.75em;
 }
 
 button, input, select, textarea {
@@ -241,7 +241,7 @@ a [class^="icon-"], a [class*=" icon-"] {
 
 .icon-border {
   border: solid 1px #eeeeee;
-  padding: .2em .25em .15em;
+  padding: 0.2em 0.25em 0.15em;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
@@ -2091,7 +2091,7 @@ code {
 }
 
 .buttonBar {
-  margin: 40px 0 60px 0;
+  margin: 40px 0 40px 0;
   text-align: center;
 }
 
@@ -2279,4 +2279,5 @@ code {
 
 .introjs-helperNumberLayer {
   line-height: 12px !important;
+  font-size: 12px !important;
 }
