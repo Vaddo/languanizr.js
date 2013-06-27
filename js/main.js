@@ -1,6 +1,11 @@
 $(function(){
   languanizrEditor.init();
-  languanizr.setOptions({permanent:true, attrScan: ["alt", "value", "title", "data-intro"]}).loadLanguage("http://localhost/languanizr.js/js/english.json");
+  languanizr.setOptions({permanent:true, attrScan: ["alt", "value", "title", "data-intro"]})
+            .loadLanguage("http://localhost/languanizr.js/js/english.json", function(){
+              if(RegExp('multipage', 'gi').test(window.location.search)) {
+                introJs().goToStep(5).start();
+              }
+            });
 
   var id = languanizr._getStorage().getItem("language");
   $("#" + id).addClass("active");
@@ -15,6 +20,8 @@ $(function(){
   });
 
   $("#tour").bind("click", function(){
-    introJs().start();
+    introJs().setOption('doneLabel', 'Next').start().oncomplete(function() {
+      window.location.href = 'editor.php?multipage=true';
+    });
   });
 });

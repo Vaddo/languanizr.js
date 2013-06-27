@@ -46,14 +46,16 @@
         "39": "... following by some words",
 
         "40": "Hell yeah! Thats it!",
-        "41": "Jop.. very simple and very fast. ;) I show you how, but first ...",
+        "41": "I show you how, but first ...",
         "42": "... some pros.",
-        "43": "Then you need a language package, which you can create with the editor",
-        "44": "Use these cool short keys to boost your workflow.",
-        "45": "To do this, type your language name and some text here.",
-        "46": "If you've done, use this short key to generate a language package for the selected language.",
-        "47": "Check out the full documentation and examples on Github.",
-        "48": "Ok. You wanna First include the script into your page.",
-        "49": "Ok. Back to content. After you triggered the language creation you get the language JSON. Use it as language package and load it with the languanizr.js."
+        "43": "Ok let's start. First get the awesome script and include it into your page.",
+        "44": "Then create a language. I recommend you the editor for this part. Let's check it out...",
+        "45": "Ahh... the editor... Hot as hell, fast as thunder... Eeeh back to content... Type some text and ...",
+        "46": "... copy it to create a placeholder for your markup. Also add a 'data-languanize' attribute.",
+        "47": "You can kick some asses with this short keys.",
+        "48": "Last but not least create the package data.",
+        "49": "What you get is a JSON right here.",
+        "50": "Do this dirty things to get a language file. Ok? If you finished, load the new language package. Done!",
+        "51": "Check out the documentation. Tour created by introJs - <a target='_blank' href='http://usablica.github.io/intro.js/'>http://usablica.github.io/intro.js/</a>"
     }
 }
