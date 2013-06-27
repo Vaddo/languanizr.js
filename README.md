@@ -137,36 +137,36 @@ You can set following options:
 
 ---
 
-###languanizr.loadLanguage(string)
+###languanizr.loadLanguage(string, function)
 
 > Loading a language package.
 
 **Available since**: v0.1.0
 
-**Parameters**: Language file as json
+**Parameters**: Language JSON as url, Callback as function
 
 **Returns**: Languanizr object.
 
 *Example*
 ```javascript
-languanizr.loadLanguage("http://your-website/languages/english.json");
+languanizr.loadLanguage("http://your-website/languages/english.json", function(){alert("Omg! It's done!")});
 ````
 
 ---
 
-###languanizr.reloadLanguage(string)
+###languanizr.reloadLanguage(string, function)
 
 > Clear the storage and load the given language package.
 
 **Available since**: v0.1.0
 
-**Parameters**: Language file as json
+**Parameters**: Language JSON as url, Callback as function
 
 **Returns**: Languanizr object.
 
 *Example*
 ```javascript
-languanizr.reloadLanguage("http://your-website/languages/english.json");
+languanizr.reloadLanguage("http://your-website/languages/english.json", function(){alert("Omg! It's done!")});
 ````
 
 ---
