@@ -11,11 +11,11 @@ $(function(){
   $("#" + id).addClass("active");
 
   $("#english").bind("click", function(){
-    languanizr.reloadLanguage("http://localhost/languanizr.js/js/english.json");
+    languanizr.reloadLanguage("http://languanizrjs.com/js/english.json");
     return false;
   });
   $("#german").bind("click", function(){
-    languanizr.reloadLanguage("http://localhost/languanizr.js/js/german.json");
+    languanizr.reloadLanguage("http://languanizrjs.com/js/german.json");
     return false;
   });
 
