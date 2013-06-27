@@ -274,4 +274,7 @@ $editorPrimaryColor:#e2e2e2;
 
 // introjs
 .introjs-helperLayer{padding:$space;}
-.introjs-helperNumberLayer{line-height:12px !important;}
+.introjs-helperNumberLayer{
+  line-height:12px !important;
+  font-size:12px !important;
+}

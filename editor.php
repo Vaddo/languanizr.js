@@ -23,12 +23,11 @@
       <div data-languanize class="shortKeysBox" data-step="8" data-intro="{$#47#$}" data-position="top">
         <div class="leftKeyBox">
           <code>←</code>, <code>↑</code>, <code>→</code>, <code>↓</code><span class="description" data-languanize>{$#27#$}</span><br>
-          <code>ENTER</code><span class="description" data-languanize>{$#27#$}</span><br>
-          <code>ESCAPE</code><span class="description" data-languanize>{$#28#$}</span><br>
-          <code>TAB</code><span class="description" data-languanize>{$#30#$}</span>
+          <code>ENTER</code><span class="description" data-languanize>{$#28#$}</span><br>
+          <code>TAB</code><span class="description" data-languanize>{$#30#$}</span><br>
+          <code>CTRL + POS</code><span class="description" data-languanize>{$#31#$}</span>
         </div>
         <div class="middleKeyBox">
-          <code>CTRL + POS</code><span class="description" data-languanize>{$#31#$}</span><br>
           <code>CTRL + END</code><span class="description" data-languanize>{$#32#$}</span><br>
           <code>CTRL + P</code><span class="description" data-languanize>{$#33#$}</span><br>
           <code>CTRL + BACKSPACE</code><span class="description" data-languanize>{$#34#$}</span>

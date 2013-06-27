@@ -33,7 +33,6 @@
 
         "27": "Cell navigation",
         "28": "Next cell in column / New row",
-        "29": "Return to editor",
         "30": "Next cell / New row",
         "31": "First cell",
         "32": "Last cell",
@@ -45,12 +44,12 @@
         "38": "type in here your language ...",
         "39": "... following by some words",
 
-        "40": "Hell yeah! Thats it!",
+        "40": "Hell yeah! That's it!",
         "41": "I show you how, but first ...",
         "42": "... some pros.",
         "43": "Ok let's start. First get the awesome script and include it into your page.",
-        "44": "Then create a language. I recommend you the editor for this part. Let's check it out...",
-        "45": "Ahh... the editor... Hot as hell, fast as thunder... Eeeh back to content... Type some text and ...",
+        "44": "Then create a language. I recommend you the editor for this part. Let's check it out ...",
+        "45": "Ahh ... the editor ... hot as hell, fast as thunder ... and ... Eeeh back to content... Type some text and ...",
         "46": "... copy it to create a placeholder for your markup. Also add a 'data-languanize' attribute.",
         "47": "You can kick some asses with this short keys.",
         "48": "Last but not least create the package data.",
