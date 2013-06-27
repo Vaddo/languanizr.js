@@ -115,7 +115,10 @@ code{
     color:lighten($primaryColor, 20%);
   }
 }
-.foot{font-size:12px;}
+.foot{
+  font-size:12px;
+  padding-bottom:$space;
+}
 
 // ------------------------------------------------------------- COMPONENTS
 .buttonBar{

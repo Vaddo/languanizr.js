@@ -8,17 +8,17 @@
 
       <?php include 'pageHead.php' ?>
 
-      <div data-languanize class="someText" data-step="2" data-intro="{$#32#$}">
+      <div data-languanize class="someText" data-step="2" data-intro="{$#41#$}">
         <h1 data-languanize data-step="4" data-intro="{$#50#$}">languanizr.js</h1>
-        <h2 data-languanize >{$#5#$}</h2>
+        <h2 data-languanize >{$#4#$}</h2>
       </div>
       <div class="buttonBar">
-        <a id="tour" data-languanize class="fatButton tour" href="#">{$#6#$}</a>
-        <span data-languanize class="or">{$#27#$}</span>
-        <a data-languanize href="#" class="fatButton download">{$#26#$}</a>
+        <a id="tour" data-languanize class="fatButton tour" href="#">{$#5#$}</a>
+        <span data-languanize class="or">{$#6#$}</span>
+        <a data-languanize href="#" class="fatButton download">{$#7#$}</a>
       </div>
       
-      <div class="content" data-step="3" data-languanize data-intro="{$#33#$}" data-position="top">
+      <div class="content" data-step="3" data-languanize data-intro="{$#42#$}" data-position="top">
         <hr>
         <span class="icon-flag icon-2x"></span><h5 data-languanize>{$#8#$}</h5>
         <p data-languanize>{$#9#$}</p>
