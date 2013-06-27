@@ -34,13 +34,13 @@ var languanizr = {
     $.extend(languanizr._options, languanizr._defaultOptions, customOptions);
     return this;
   },
-  loadLanguage: function(languagePack){
-    languanizr._load(languagePack);
+  loadLanguage: function(languagePack, afterTranslate){
+    languanizr._load(languagePack, afterTranslate);
     return this;
   },
-  reloadLanguage: function(languagePack){
+  reloadLanguage: function(languagePack, afterTranslate){
     languanizr._getStorage().clear();
-    languanizr._load(languagePack);
+    languanizr._load(languagePack, afterTranslate);
     setTimeout(function(){window.location.reload();}, 100);
     return this;
   },
@@ -97,7 +97,7 @@ var languanizr = {
   // -------------------------------------------------------------------------------
   // private functions -------------------------------------------------------------
   // -------------------------------------------------------------------------------
-  _load: function(languagePack){
+  _load: function(languagePack, afterTranslate){
     if(!languagePack){
       alert("languanizr.js - No language pack found!")
     }else{
@@ -108,6 +108,11 @@ var languanizr = {
           if(languanizr._validateLanguagePack(loadedPack)){
             languanizr._checkAndStore(loadedPack);
             languanizr.doTranslate();
+
+            if(afterTranslate != undefined){
+              // trigger the after translate callback
+              afterTranslate();
+            }
           }
        })
        .fail(function(){alert("languanizr.js - Loading language failed!");});
