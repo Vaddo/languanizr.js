@@ -20,8 +20,10 @@ $(function(){
   });
 
   $("#tour").bind("click", function(){
-    introJs().setOption('doneLabel', 'Next').start().oncomplete(function() {
-      window.location.href = 'editor.php?multipage=true';
+    introJs().start().onbeforechange(function() {
+      if($(".introjs-helperNumberLayer").text() == "5"){
+        window.location.href = 'editor.php?multipage=true';
+      }
     });
   });
 });
