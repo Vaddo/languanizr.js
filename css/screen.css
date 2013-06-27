@@ -32,7 +32,7 @@ a:active, a:hover {
 
 h1 {
   font-size: 2em;
-  margin: 0.67em 0;
+  margin: .67em 0;
 }
 
 abbr[title] {
@@ -101,7 +101,7 @@ svg:not(:root) {
 fieldset {
   border: 1px solid silver;
   margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em;
+  padding: .35em .625em .75em;
 }
 
 button, input, select, textarea {
@@ -241,7 +241,7 @@ a [class^="icon-"], a [class*=" icon-"] {
 
 .icon-border {
   border: solid 1px #eeeeee;
-  padding: 0.2em 0.25em 0.15em;
+  padding: .2em .25em .15em;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
@@ -1967,12 +1967,9 @@ body {
 }
 
 hr {
+  clear: both;
   border: none;
   border-bottom: solid 1px #efefef;
-}
-hr.alt {
-  margin-bottom: 50px;
-  border-bottom: solid 30px #dddddd;
 }
 
 a {
@@ -2037,6 +2034,10 @@ code {
   float: right;
 }
 
+.left {
+  float: left;
+}
+
 .clear {
   clear: both;
 }
@@ -2050,41 +2051,19 @@ code {
   position: relative;
 }
 
-.topNav {
-  position: absolute;
-  top: 20px;
-  right: 0;
-}
-
 .head {
-  position: relative;
-  margin-bottom: 20px;
+  height: 60px;
 }
-.head > div {
-  width: 300px;
-}
-
-.product {
-  position: relative;
-}
-.product nav {
-  top: -70px;
+.head .button {
+  margin-top: 10px;
 }
 
 .nav {
-  position: absolute;
-  top: 100px;
-  left: 10px;
-}
-
-.nav2 {
-  position: absolute;
-  top: 100px;
-  right: 10px;
+  margin-top: 20px;
 }
 
 .someText {
-  margin-top: 50px;
+  margin-top: 80px;
   text-align: center;
 }
 
@@ -2108,22 +2087,6 @@ code {
 
 .foot {
   font-size: 12px;
-}
-
-.homeContainer, .editorContainer, .jsonContainer {
-  -webkit-transition: all 0.4s ease-in-out;
-  -moz-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
-}
-
-.homeContainer {
-  position: relative;
-}
-
-.contentWrapper {
-  position: relative;
-  padding-bottom: 100px;
 }
 
 .buttonBar {
@@ -2196,16 +2159,6 @@ code {
   color: white;
   background-color: #2967a4;
   border: 1px solid #1f4d7b;
-}
-
-.icon-question-sign {
-  margin-right: 10px;
-}
-
-.back {
-  position: absolute;
-  top: -70px;
-  right: 0;
 }
 
 .languanizrEditorPlaceholder {
@@ -2304,6 +2257,11 @@ code {
   background-color: #fcfcfc;
 }
 
+.jsonContainer .description {
+  margin-top: 40px;
+  display: block;
+  text-align: center;
+}
 .jsonContainer textarea {
   padding: 10px;
   font-size: 14px;

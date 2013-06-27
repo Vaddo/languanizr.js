@@ -30,13 +30,9 @@ body{
   overflow-x: hidden;
 }
 hr{
+  clear:both;
   border:none;
   border-bottom:solid 1px lighten($primaryColor, 67%);
-
-  &.alt{
-    margin-bottom:50px;
-    border-bottom:solid 30px lighten($primaryColor, 60%);
-  }
 }
 a{
   color: #2967a4;
@@ -83,6 +79,7 @@ code{
 
 // ------------------------------------------------------------------- PAGE
 .right{float:right;}
+.left{float:left;}
 .clear{clear:both;}
 .page{
   max-width:$pageWidth;
@@ -92,20 +89,13 @@ code{
   padding-right:$space/2;
   position: relative;
 }
-.topNav{@include pos($space,0,'','');}
 .head{
-  position: relative;
-  margin-bottom:$space;
-  &>div{width:300px;}
+  height:60px;
+  .button{margin-top:$space/2;}
 }
-.product{
-  position: relative;
-  nav{top:-70px;}
-}
-.nav{@include pos(100px,'','',$space/2);}
-.nav2{@include pos(100px,$space/2,'','');}
+.nav{margin-top:$space;}
 .someText{
-  margin-top:50px;
+  margin-top:80px;
   text-align: center;
 }
 .or{
@@ -126,14 +116,6 @@ code{
   }
 }
 .foot{font-size:12px;}
-
-.homeContainer, .editorContainer, .jsonContainer{@include transition(all 0.4s ease-in-out);}
-.homeContainer{position: relative;}
-
-.contentWrapper{
-  position: relative;
-  padding-bottom:100px;
-}
 
 // ------------------------------------------------------------- COMPONENTS
 .buttonBar{
@@ -168,7 +150,6 @@ $bgcTour:#3072b3;
   background-color:$altColor;
   border:solid 1px darken($altColor, 10%);
 
-
   &:hover{
     $bgcHover: darken($altColor, 10%);
     background-color:$bgcHover;
@@ -197,8 +178,6 @@ $bgcTour:#3072b3;
 
 // ------------------------------------------------------------- LANGUAGE EDITOR
 $editorPrimaryColor:#e2e2e2;
-.icon-question-sign{margin-right:10px;}
-.back{@include pos(-70px,0,'','');}
 .languanizrEditorPlaceholder{@include opacity(0);}
 .shortKeysBox{
   font-size:12px;
@@ -231,8 +210,8 @@ $editorPrimaryColor:#e2e2e2;
 }
 .languanizrEditor{
   width:100%;
-  margin-top:20px;
-  margin-bottom:40px;
+  margin-top:$space;
+  margin-bottom:$space*2;
 
   td:focus, th:focus{
     outline:none;
@@ -274,8 +253,13 @@ $editorPrimaryColor:#e2e2e2;
   }
 }
 .jsonContainer{
+  .description{
+    margin-top:$space*2;
+    display:block;
+    text-align:center;
+  }
   textarea{
-    padding:10px;
+    padding:$space/2;
     font-size: 14px;
     color:darken($editorPrimaryColor, 30%);
     height:120px;
