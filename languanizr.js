@@ -101,10 +101,12 @@ var languanizr = {
     if(!languagePack){
       alert("languanizr.js - No language pack found!")
     }else{
-      var storage = languanizr._getStorage();
-
-      $.getJSON(languagePack)
-       .done(function(loadedPack){
+      $.ajax({
+        type: "POST",
+        url: languagePack,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(loadedPack) {
           if(languanizr._validateLanguagePack(loadedPack)){
             languanizr._checkAndStore(loadedPack);
             languanizr.doTranslate();
@@ -114,8 +116,11 @@ var languanizr = {
               afterTranslate();
             }
           }
-       })
-       .fail(function(){alert("languanizr.js - Loading language failed!");});
+        },
+        error: function (xhr, textStatus, errorThrown) {
+          alert("languanizr.js - Loading language failed!");
+        }
+      });
     }
   },
   _validateLanguagePack: function(loadedPack){
