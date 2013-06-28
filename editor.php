@@ -9,7 +9,7 @@
       <?php include 'pageHead.php' ?>
 
       <div data-languanize class="someText" data-step="2" data-intro="{$#32#$}">
-        <h1 data-languanize data-step="4" data-intro="{$#50#$}">languanizr editor</h1>
+        <h1 data-languanize data-step="4" class="editor" data-intro="{$#50#$}">languanizr editor<span class="version">v. 0.1.0</span></h1>
         <h2 data-languanize >{$#4#$}</h2>
       </div>
 
@@ -19,7 +19,6 @@
       </div>
       <hr>
 
-      <span class="version">v. 0.1.0</span>
       <div data-languanize class="shortKeysBox" data-step="8" data-intro="{$#47#$}" data-position="top">
         <div class="leftKeyBox">
           <code>←</code>, <code>↑</code>, <code>→</code>, <code>↓</code><span class="description" data-languanize>{$#27#$}</span><br>
