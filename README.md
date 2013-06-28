@@ -217,10 +217,7 @@ the **editor branch** - https://github.com/Vaddo/languanizr.js/tree/editor - for
 ---
 
 ## Roadmap
-- Automatic language selector
-- Faster translation
-- More examples
-- More code comments
+ Check out the issue list https://github.com/Vaddo/languanizr.js/issues or the milestornes https://github.com/Vaddo/languanizr.js/issues/milestones
 
 ---
 
