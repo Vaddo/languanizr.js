@@ -32,7 +32,7 @@ a:active, a:hover {
 
 h1 {
   font-size: 2em;
-  margin: 0.67em 0;
+  margin: .67em 0;
 }
 
 abbr[title] {
@@ -101,7 +101,7 @@ svg:not(:root) {
 fieldset {
   border: 1px solid silver;
   margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em;
+  padding: .35em .625em .75em;
 }
 
 button, input, select, textarea {
@@ -241,7 +241,7 @@ a [class^="icon-"], a [class*=" icon-"] {
 
 .icon-border {
   border: solid 1px #eeeeee;
-  padding: 0.2em 0.25em 0.15em;
+  padding: .2em .25em .15em;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
@@ -2195,13 +2195,13 @@ code {
   width: 200px;
 }
 
+.editor {
+  font-size: 50px;
+}
+
 .version {
-  font-size: 12px;
-  color: #919191;
+  font-size: 16px;
   font-style: italic;
-  position: absolute;
-  top: -50px;
-  right: 0;
 }
 
 .idCol {
@@ -2280,4 +2280,10 @@ code {
 .introjs-helperNumberLayer {
   line-height: 12px !important;
   font-size: 12px !important;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 1024px) {
+  .or, #tour, #home, #editor {
+    display: none !important;
+  }
 }

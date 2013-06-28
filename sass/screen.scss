@@ -197,12 +197,8 @@ $editorPrimaryColor:#e2e2e2;
 .middleKeyBox{width:240px;}
 .rightKeyBox{width:200px;}
 
-.version{
-  font-size:12px;
-  color:lighten($primaryColor, 30%);
-  font-style:italic;
-  @include pos(-50px,0,'','');
-}
+.editor{font-size:50px;}
+.version{font-size:16px;font-style:italic;}
 .idCol{
   width:40px;
   text-align: center !important;
@@ -277,4 +273,11 @@ $editorPrimaryColor:#e2e2e2;
 .introjs-helperNumberLayer{
   line-height:12px !important;
   font-size:12px !important;
+}
+
+// smartphones
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 1024px) {
+  .or, #tour, #home, #editor{display:none !important;}
 }
