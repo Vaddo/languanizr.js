@@ -15,7 +15,7 @@
       <div class="buttonBar">
         <a id="tour" data-languanize class="fatButton tour" href="#">{$#5#$}</a>
         <span data-languanize class="or">{$#6#$}</span>
-        <a data-languanize href="#" class="fatButton download">{$#7#$}</a><br><br><br>
+        <a data-languanize href="https://github.com/Vaddo/languanizr.js/tags" target="_blank" class="fatButton download">{$#7#$}</a><br><br><br>
         <a href="https://twitter.com/vadimhermann" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @vadimhermann</a>
         <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.languanizrjs.com" data-via="vadimhermann">Tweet</a>
       </div>
