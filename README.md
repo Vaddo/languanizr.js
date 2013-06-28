@@ -217,7 +217,7 @@ the **editor branch** - https://github.com/Vaddo/languanizr.js/tree/editor - for
 ---
 
 ## Roadmap
- Check out the issue list https://github.com/Vaddo/languanizr.js/issues or the milestornes https://github.com/Vaddo/languanizr.js/issues/milestones
+ Check out the issue list https://github.com/Vaddo/languanizr.js/issues or the milestones https://github.com/Vaddo/languanizr.js/issues/milestones for more informations.
 
 ---
 
