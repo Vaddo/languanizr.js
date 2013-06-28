@@ -5,17 +5,12 @@
 ---
 
 **The editor is only on http://www.languanizrjs.com available at the moment. But a standalone 
-version are comming soon... Check out the roadmap and issues for more details**
+version is planned ... Check out the roadmap more details**
 
 ---
 
 ## Roadmap
-- Standalone version
-- Better documentation
-- Load a existing language package
-- More examples
-- More code comments
-- Better browser support
+ Check out the issue list https://github.com/Vaddo/languanizr.js/issues or the milestones https://github.com/Vaddo/languanizr.js/issues/milestones for more informations.
 
 ---
 
