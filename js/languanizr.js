@@ -101,7 +101,6 @@ var languanizr = {
     if(!languagePack){
       alert("languanizr.js - No language pack found!")
     }else{
-      console.log(languagePack)
       $.ajax({
         type: "POST",
         url: languagePack,
