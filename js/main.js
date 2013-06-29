@@ -26,4 +26,6 @@ $(function(){
       }
     });
   });
+
+  $("#version").text("v" + languanizr.getVersion());
 });
