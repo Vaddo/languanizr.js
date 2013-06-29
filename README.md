@@ -17,7 +17,7 @@
 > Languanizr.js can be included easily in your webpage in four steps
 
 
-**1)** Include **languanizr.js** or the minified version in your page.
+**1)** Include the latest jQuery version and **languanizr.js** in your page.
 
 *Example* 
 ```html
@@ -110,9 +110,10 @@ You can set following options:
 
 **Available since**: v0.1.0
 
-- `auto`: Automatic translation every time if the DOM changes. Can be `true` or `false`. Default is `true`.
+- `auto`: Automatic translation every time if the DOM changes. Can be `true` or `false`. Default is `false`.
 
-> **HINT**: If you set this option to `false` you need to trigger manualy the translation with the `doTranslate()` function.
+> **HINT**: If you set this option to `true` the translation will be triggered automaticly, every time the DOM changed. 
+            Otherwise you need always trigger the translation with `doTranslate()`. Set it to `true`, if you have dynamic content.
 
 > **HINT**: Also if you want IE8 support, because DOMSubtreeModified event support comes by IE9+.
 
@@ -129,11 +130,15 @@ You can set following options:
               By default the script searching the HTML text and the attributes `["alt", "value", "title"]` for placeholders.
 
 - `removeSelectors`: If you want to remove the `data-languanize` attribute after the translating, set this property to `true`. 
-                     Default is `false`.
+                     Default is `true`.
 
 > **HINT**: For better performance set this property to `true`, because every time the DOM changes, 
             the script iterate through all `data-langunize` attributes to check the text.
             If you needed max translation support for dynamic content, set it to `false`.
+
+**Available since**: v0.1.1
+
+- `contentEncoding`: Define the endcoding type for the JSON request. Default is `utf-8`.
 
 ---
 
@@ -186,6 +191,21 @@ languanizr.doTranslate();
 
 ---
 
+###languanizr.getVersion()
+
+> Gets the version of the script.
+
+**Available since**: v0.1.1
+
+**Returns**: String.
+
+*Example*
+```javascript
+languanizr.getVersion();
+````
+
+---
+
 ## Language Package
 > **HINT**: Use the online language editor at http://www.languanizrjs.com to create fast and simple language packages or check out 
 the **editor branch** - https://github.com/Vaddo/languanizr.js/tree/editor - for more details about the editor.
@@ -222,7 +242,20 @@ the **editor branch** - https://github.com/Vaddo/languanizr.js/tree/editor - for
 ---
 
 ## Release History
-Later ...
+
+- v0.1.1 - 2013-06-29
+-- Add the option `contentEncoding` to define the JSON request encoding
+-- Switched from getJSON function to ajax function for more flexebility
+-- Fixed a IE toString javascript exception
+-- Added IE9+ support
+-- Changed the default of `auto` option to `false`
+-- Changed the default of `removeSelector` option to `true`
+-- Added private property `version`
+-- Added new function `getVersion`
+
+
+- v0.1.0 - 2013-06-28
+-- First version.
 
 ---
 
