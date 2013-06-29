@@ -1,7 +1,7 @@
 {
     "title": "Languanizr Sprachpaket",
     "url": "http://www.languanizrjs.com",
-    "package_version": 1,
+    "package_version": 2,
     "language": "german",
     "text": {
         "1": "Clientseitiges Übsersetzungsskript",
@@ -16,7 +16,7 @@
         "10": "Leichtes einrichten",
         "11": "Languanizr.js einbinden, eigenes Sprachpaket bauen, HTML Markup vorbereiten. Fertig!",
         "12": "Schnelles und kleines Skript",
-        "13": "Nutzt Localstorage und Sessionstorage für eine super schnelle Übersetzung. Skriptgröße nur 6 KB.",
+        "13": "Nutzt Localstorage und Sessionstorage für eine super schnelle Übersetzung. Nur 3 KB groß.",
         "14": "Einfaches Sprachpaket bauen",
         "15": "Nutze den Editor um schnell Sprachpakete zu bauen.",
         "16": "Cooler online Sprach Editor",
@@ -24,7 +24,7 @@
         "18": "Frei & Open-Source",
         "19": "Open-Source und lizensiert unter der MIT Lizenz. Kommerzielle als auch private Nutzung ist möglich.",
         "20": "Funktioniert Browserübergreifend",
-        "21": "Unterstützt die aktuellsten Versionen von Firefox und Chrome.",
+        "21": "Unterstützt Firefox, Chrome und IE9+",
         "22": "Ein Projekt von",
         "23": "Hintergrundgrafik von",
         "24": "Start",
@@ -55,6 +55,6 @@
         "48": "So nun generieren wir einfach das Sprachpaket.",
         "49": "Was wir dann bekommen sind JSON Daten, welche dann hier erscheinen.",
         "50": "Jetzt müssen wir nur noch einige ferkeleien durchführen, um anschließend eine Sprachdatei zu bekommen. Ok? Diese laden wir dann mit unserem Skript.",
-        "51": "Fragen? Schau mal in die Dokumentation rein. Die Tour habe ich mit introJs erstellt. - <a target='_blank' href='http://usablica.github.io/intro.js/'>http://usablica.github.io/intro.js/</a>"
+        "51": "Fragen? Schau mal in die Dokumentation rein. Die Tour wurde mit IntroJs erstellt."
     }
 }

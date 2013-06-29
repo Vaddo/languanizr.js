@@ -1,7 +1,7 @@
 {
     "title": "Languanizr language package",
     "url": "http://www.languanizrjs.com",
-    "package_version": 1,
+    "package_version": 2,
     "language": "english",
     "text": {
         "1": "Client side translation script",
@@ -16,7 +16,7 @@
         "10": "Easy & Quick Setup",
         "11": "Include languanizr.js, create language packages, prepare markup. Done!",
         "12": "Fast & Small Script",
-        "13": "Local and session storage boosts translation. Only 6 KB.",
+        "13": "Local and session storage boosts translation. Only 3 KB.",
         "14": "Simple Language Creation",
         "15": "Use the editor and create super fast language packages.",
         "16": "Hot Online Language Editor",
@@ -55,6 +55,6 @@
         "48": "Last but not least create the package data.",
         "49": "What you get is a JSON right here.",
         "50": "Do this dirty things to get a language file. Ok? If you finished, load the new language package. Done!",
-        "51": "Check out the documentation. Tour created by introJs - <a target='_blank' href='http://usablica.github.io/intro.js/'>http://usablica.github.io/intro.js/</a>"
+        "51": "Check out the documentation. Tour created with IntroJs."
     }
 }
