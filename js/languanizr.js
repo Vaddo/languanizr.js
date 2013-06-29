@@ -1,5 +1,5 @@
 /**
- * Languanizr.js v0.1.0
+ * Languanizr.js v0.1.1
  *
  * Client side translation script
  * -
@@ -15,15 +15,18 @@
  */
 var languanizr = {
   // -------------------------------------------------------------------------------
-  // properties --------------------------------------------------------------------
+  // private properties ------------------------------------------------------------
   // -------------------------------------------------------------------------------
+  _version: '0.1.1',
   _defaultOptions: {
-    auto: true,
+    auto: false,
     permanent: false,
     attrScan: ["alt", "value", "title"],
-    removeSelectors: false
+    removeSelectors: true,
+    contentEncoding: 'utf-8'
   },
   _options: {},
+
 
 
   // -------------------------------------------------------------------------------
@@ -91,6 +94,9 @@ var languanizr = {
 
     return this;
   },
+  getVersion: function(){
+    return languanizr._version;
+  },
 
 
 
@@ -102,19 +108,14 @@ var languanizr = {
       alert("languanizr.js - No language pack found!")
     }else{
       $.ajax({
-        type: "POST",
+        type: "GET",
         url: languagePack,
-        contentType: "application/json; charset=utf-8",
+        contentType: "text/plain; charset=" + languanizr._options.contentEncoding,
         dataType: "json",
         success: function(loadedPack) {
           if(languanizr._validateLanguagePack(loadedPack)){
             languanizr._checkAndStore(loadedPack);
             languanizr.doTranslate();
-
-            if(afterTranslate != undefined){
-              // trigger the after translate callback
-              afterTranslate();
-            }
           }
         },
         error: function (xhr, textStatus, errorThrown) {
@@ -138,6 +139,7 @@ var languanizr = {
     return !isNaN(parseFloat(n)) && isFinite(n);
   },
   _isString: function (obj) {
+    var toString = Object.prototype.toString;
     return toString.call(obj) == '[object String]';
   },
   _replacePlaceholder: function(string, storage){
