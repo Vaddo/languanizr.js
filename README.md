@@ -243,19 +243,28 @@ the **editor branch** - https://github.com/Vaddo/languanizr.js/tree/editor - for
 
 ## Release History
 
-- v0.1.1 - 2013-06-29
--- Add the option `contentEncoding` to define the JSON request encoding
--- Switched from getJSON function to ajax function for more flexebility
--- Fixed a IE toString javascript exception
--- Added IE9+ support
--- Changed the default of `auto` option to `false`
--- Changed the default of `removeSelector` option to `true`
--- Added private property `version`
--- Added new function `getVersion`
+* v0.1.1 - 2013-06-29
+
+- Add the option `contentEncoding` to define the JSON request encoding
+
+- Switched from getJSON function to ajax function for more flexebility
+
+- Fixed a IE toString javascript exception
+
+- Added IE9+ support
+
+- Changed the default of `auto` option to `false`
+
+- Changed the default of `removeSelector` option to `true`
+
+- Added private property `version`
+
+- Added new function `getVersion`
 
 
-- v0.1.0 - 2013-06-28
--- First version.
+* v0.1.0 - 2013-06-28
+
+- First version.
 
 ---
 
